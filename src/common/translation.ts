@@ -74,7 +74,7 @@ function _getMessage(key: string, lang: I18N_LANGS) {
     if (key.trim() == "") return key;
 
     const resolvedLang = resolveLanguage(lang);
-    if (resolvedLang === "zh" && Object.hasOwn(customOverrides, key)) return customOverrides[key];
+    if (resolvedLang === "zh" && Object.prototype.hasOwnProperty.call(customOverrides, key)) return customOverrides[key];
 
     const provisionalEnglish = liveSyncProvisionalEnglishMessages[key as LiveSyncProvisionalMessageKey];
     const msgs =
