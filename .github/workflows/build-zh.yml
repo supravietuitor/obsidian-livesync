@@ -12,8 +12,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
         with:
           node-version: '24.x'
       - name: Install
@@ -25,12 +25,12 @@ jobs:
       - name: i18n coverage report
         run: npx tsx _tools/checkI18nCoverage.ts > i18n-coverage.json
       - name: Upload coverage artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: i18n-coverage
           path: i18n-coverage.json
       - name: Upload plugin artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: obsidian-livesync-zh
           path: |
