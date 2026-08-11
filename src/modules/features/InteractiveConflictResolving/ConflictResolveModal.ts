@@ -7,7 +7,7 @@ import {
     type FilePathWithPrefix,
 } from "@vrtmrz/livesync-commonlib/compat/common/types";
 import { EVENT_CONFLICT_CANCELLED, eventHub } from "@/common/events.ts";
-import { $msg } from "@/common/translation";
+import { $msg, $t } from "@/common/translation";
 import { promiseWithResolvers } from "octagonal-wheels/promises";
 
 export const POSTPONED = Symbol("postponed");
@@ -203,7 +203,7 @@ export class ConflictResolveModal extends Modal {
         }
         if (diffLength > 100 * 1024) {
             this.diffView.empty();
-            this.diffView.setText($msg("(Too large diff to display)"));
+            this.diffView.setText($t("(Too large diff to display)"));
         }
         this.resetDiffNavigation();
         this.navigateDiff("next");
