@@ -390,7 +390,7 @@ export function paneRemoteConfig(
                         setEmojiButton(btn, "…", "More actions").onClick(() => {
                             const menu = new Menu()
                                 .addItem((item) => {
-                                    item.setTitle("🪪 Rename").onClick(async () => {
+                                    item.setTitle(`🪪 ${$msg("Rename")}`).onClick(async () => {
                                         const nextName = await this.services.UI.confirm.askString(
                                             "Remote name",
                                             "Display name",
@@ -412,7 +412,7 @@ export function paneRemoteConfig(
                                     });
                                 })
                                 .addItem((item) => {
-                                    item.setTitle("📤 Export").onClick(async () => {
+                                    item.setTitle(`📤 ${$msg("Export")}`).onClick(async () => {
                                         await this.services.UI.promptCopyToClipboard(
                                             `Remote configuration: ${config.name}`,
                                             config.uri
@@ -420,7 +420,7 @@ export function paneRemoteConfig(
                                     });
                                 })
                                 .addItem((item) => {
-                                    item.setTitle("🧬 Duplicate").onClick(async () => {
+                                    item.setTitle(`🧬 ${$msg("Duplicate")}`).onClick(async () => {
                                         const nextName = await this.services.UI.confirm.askString(
                                             "Duplicate remote",
                                             "Display name",
@@ -446,7 +446,7 @@ export function paneRemoteConfig(
                                 })
                                 .addSeparator()
                                 .addItem((item) => {
-                                    item.setTitle("📡 Fetch remote settings").onClick(async () => {
+                                    item.setTitle(`📡 ${$msg("Fetch remote settings")}`).onClick(async () => {
                                         let parsed: RemoteConfigurationResult;
                                         try {
                                             parsed = ConnectionStringParser.parse(config.uri);
