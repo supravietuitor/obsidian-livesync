@@ -17,6 +17,7 @@ import { isPlainText, stripPrefix } from "@vrtmrz/livesync-commonlib/compat/stri
 import { scheduleOnceIfDuplicated } from "octagonal-wheels/concurrency/lock";
 import type { LiveSyncBaseCore } from "@/LiveSyncBaseCore.ts";
 import { compatGlobal } from "@vrtmrz/livesync-commonlib/compat/common/coreEnvFunctions";
+import { $msg } from "@/common/translation";
 import {
     DOCUMENT_HISTORY_PREFERENCE_KEYS,
     loadDocumentHistoryPreference,
@@ -535,7 +536,7 @@ export class DocumentHistoryModal extends Modal {
 
     override onOpen() {
         const { contentEl } = this;
-        this.titleEl.setText("Document History");
+        this.titleEl.setText($msg("Document History"));
         contentEl.empty();
         this.fileInfo = contentEl.createDiv("");
         this.fileInfo.addClass("op-info");
@@ -657,13 +658,13 @@ export class DocumentHistoryModal extends Modal {
         this.diffNavContainer.addClass("diff-nav");
         this.diffNavContainer.setCssStyles({ display: this.showDiff ? "flex" : "none" });
 
-        this.diffNavContainer.createEl("button", { text: "\u25B2 Prev" }, (e) => {
+        this.diffNavContainer.createEl("button", { text: $msg("▲ Prev") }, (e) => {
             e.addClass("diff-nav-btn");
             e.addEventListener("click", () => {
                 this.navigateDiff("prev");
             });
         });
-        this.diffNavContainer.createEl("button", { text: "\u25BC Next" }, (e) => {
+        this.diffNavContainer.createEl("button", { text: $msg("▼ Next") }, (e) => {
             e.addClass("diff-nav-btn");
             e.addEventListener("click", () => {
                 this.navigateDiff("next");
@@ -675,12 +676,12 @@ export class DocumentHistoryModal extends Modal {
         this.info = contentEl.createDiv("");
         this.info.addClass("op-info");
         fireAndForget(async () => await this.loadFile(this.initialRev));
-        const div = contentEl.createDiv({ text: "Loading old revisions..." });
+        const div = contentEl.createDiv({ text: $msg("Loading old revisions...") });
         this.contentView = div;
         div.addClass("op-scrollable");
         div.addClass("op-pre");
         const buttons = contentEl.createDiv("");
-        buttons.createEl("button", { text: "Copy to clipboard" }, (e) => {
+        buttons.createEl("button", { text: $msg("Copy to clipboard") }, (e) => {
             e.addClass("mod-cta");
             e.addEventListener("click", () => {
                 fireAndForget(async () => {
@@ -698,7 +699,7 @@ export class DocumentHistoryModal extends Modal {
                 Logger("Unable to display the file in the editor", LOG_LEVEL_NOTICE);
             }
         };
-        buttons.createEl("button", { text: "Back to this revision" }, (e) => {
+        buttons.createEl("button", { text: $msg("Back to this revision") }, (e) => {
             e.addClass("mod-cta");
             e.addEventListener("click", () => {
                 fireAndForget(async () => {
