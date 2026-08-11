@@ -441,7 +441,7 @@ export class DocumentHistoryModal extends Modal {
         const totalRevs = this.revs_info.length;
         const end = Math.min(totalRevs, limit);
 
-        this.searchProgressIndicator.setText("Searching...");
+        this.searchProgressIndicator.setText($msg("Searching..."));
 
         const dmp = new diff_match_patch();
 
@@ -495,13 +495,13 @@ export class DocumentHistoryModal extends Modal {
             }
         }
 
-        this.searchProgressIndicator.setText("Done");
+        this.searchProgressIndicator.setText($msg("Done"));
         this.updateSearchUI();
     }
 
     updateSearchUI() {
         if (this.searchResults.length === 0) {
-            this.searchResultIndicator.setText(this.searchKeyword ? "No matches found" : "");
+            this.searchResultIndicator.setText(this.searchKeyword ? $msg("No matches found") : "");
         } else {
             const current = this.currentSearchIndex >= 0 ? this.currentSearchIndex + 1 : 0;
             this.searchResultIndicator.setText(`${current}/${this.searchResults.length} matches`);
@@ -549,7 +549,7 @@ export class DocumentHistoryModal extends Modal {
 
         const searchInput = searchRow.createEl("input", {
             type: "text",
-            placeholder: "Search in history (last 100)...",
+            placeholder: $msg("Search in history (last 100)..."),
         });
         searchInput.addClass("history-search-input");
         searchInput.addEventListener("input", () => {
@@ -562,12 +562,12 @@ export class DocumentHistoryModal extends Modal {
         });
 
         this.searchPrevBtn = searchRow.createEl("button", { text: "\u25B2" }, (e) => {
-            e.title = "Previous match";
+            e.title = $msg("Previous match");
             e.disabled = true;
             e.addEventListener("click", () => this.navigateSearch("prev"));
         });
         this.searchNextBtn = searchRow.createEl("button", { text: "\u25BC" }, (e) => {
-            e.title = "Next match";
+            e.title = $msg("Next match");
             e.disabled = true;
             e.addEventListener("click", () => this.navigateSearch("next"));
         });
@@ -582,7 +582,7 @@ export class DocumentHistoryModal extends Modal {
 
         this.revPrevBtn = revNavRow.createEl("button", { text: "\u25C0" }, (e) => {
             e.addClass("history-rev-nav-btn");
-            e.title = "Older revision";
+            e.title = $msg("Older revision");
             e.disabled = true;
             e.addEventListener("click", () => this.navigateVersion("older"));
         });
@@ -601,7 +601,7 @@ export class DocumentHistoryModal extends Modal {
 
         this.revNextBtn = revNavRow.createEl("button", { text: "\u25B6" }, (e) => {
             e.addClass("history-rev-nav-btn");
-            e.title = "Newer revision";
+            e.title = $msg("Newer revision");
             e.disabled = true;
             e.addEventListener("click", () => this.navigateVersion("newer"));
         });
@@ -648,7 +648,7 @@ export class DocumentHistoryModal extends Modal {
                 void scheduleOnceIfDuplicated("loadRevs", () => this.loadRevs());
             });
         });
-        diffOnlyLabel.appendText("Diff only");
+        diffOnlyLabel.appendText($msg("Diff only"));
         diffOnlyLabel.addClass("diff-only-label");
         diffOnlyLabel.setCssStyles({ display: this.showDiff ? "inline-block" : "none" });
         this.diffOnlyLabel = diffOnlyLabel;

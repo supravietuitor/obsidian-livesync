@@ -1641,3 +1641,12 @@ Document History: 文档历史
 "Loading old revisions...": "正在加载历史修订..."
 Copy to clipboard: 复制到剪贴板
 Back to this revision: 恢复到此修订
+"Searching...": "正在搜索..."
+Done: 完成
+No matches found: 未找到匹配项
+"Search in history (last 100)...": "搜索历史记录（最近 100 条）..."
+Previous match: 上一个匹配项
+Next match: 下一个匹配项
+Older revision: 较旧修订
+Newer revision: 较新修订
+Diff only: 仅显示差异
