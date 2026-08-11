@@ -1626,3 +1626,9 @@ xxhash64 (Fastest): xxhash64（最快）
 "Synchronisation utilising journal files. You must have set up an S3/MinIO/R2 compatible object storage.": "通过日志文件进行同步。你需要事先部署好兼容 S3/MinIO/R2 的对象存储服务。"
 "Peer-to-Peer only": "仅 Peer-to-Peer"
 "This feature enables direct synchronisation between devices. No server is required, but both devices must be online at the same time for synchronisation to occur, and some features may be limited. Internet connection is only required to signalling (detecting peers) and not for data transfer.": "此功能可在设备之间直接同步，无需服务器；但同步时两台设备必须同时在线，且部分功能可能受限。互联网连接仅用于信令（发现对端），不用于数据传输。"
+Selector: 选择器
+Hatch: 工具箱
+Advanced: 高级
+Power users: 高级用户
+Patches: 补丁
+Maintenance: 维护

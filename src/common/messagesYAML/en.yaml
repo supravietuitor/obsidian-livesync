@@ -2435,3 +2435,8 @@ You should perform this operation only in exceptional circumstances, such as whe
     when the server data is completely corrupted, when changes on all other
     devices are no longer needed, or when the database size has become unusually
     large in comparison to the Vault size.
+Selector: Selector
+Hatch: Hatch
+Power users: Power users
+Patches: Patches
+Maintenance: Maintenance
