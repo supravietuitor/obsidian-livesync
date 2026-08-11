@@ -127,7 +127,7 @@ export function paneHatch(this: ObsidianLiveSyncSettingTab, paneEl: HTMLElement,
         this.addOnSaved("suspendParseReplicationResult", () => this.services.appLifecycle.askRestart());
     });
 
-    void addPanel(paneEl, "Recovery and Repair").then((paneEl) => {
+    void addPanel(paneEl, $msg("Recovery and Repair")).then((paneEl) => {
         const resultArea = paneEl.createDiv({ text: "", cls: "sls-repair-results" });
         type RepairMenuAction = {
             title: string;
