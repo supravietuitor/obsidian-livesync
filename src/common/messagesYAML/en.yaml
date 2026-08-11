@@ -2460,7 +2460,4 @@ Diff only: Diff only
 "${CURRENT}/${TOTAL} matches": "${CURRENT}/${TOTAL} matches"
 "We don't have any history for this note.": "We don't have any history for this note."
 "Error while loading file.": "Error while loading file."
-Memory cache: Memory cache
-Local Database Tweak: Local Database Tweak
-Transfer Tweak: Transfer Tweak
 Remote Database Tweak: Remote Database Tweak
