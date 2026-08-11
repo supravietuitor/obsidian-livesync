@@ -1655,3 +1655,4 @@ Diff only: 仅显示差异
 "${CURRENT}/${TOTAL} matches": "${CURRENT}/${TOTAL} 个匹配项"
 "We don't have any history for this note.": "此笔记没有历史记录。"
 "Error while loading file.": "加载文件时出错。"
+"(Too large diff to display)": "（差异过大，无法显示）"

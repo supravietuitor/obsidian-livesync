@@ -203,7 +203,7 @@ export class ConflictResolveModal extends Modal {
         }
         if (diffLength > 100 * 1024) {
             this.diffView.empty();
-            this.diffView.setText("(Too large diff to display)");
+            this.diffView.setText($msg("(Too large diff to display)"));
         }
         this.resetDiffNavigation();
         this.navigateDiff("next");
