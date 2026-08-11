@@ -20,6 +20,8 @@ jobs:
         run: npm ci
       - name: Bake i18n
         run: npm run i18n:bake
+      - name: Type check
+        run: npm run tsc-check
       - name: Build
         run: npm run build
       - name: i18n coverage report

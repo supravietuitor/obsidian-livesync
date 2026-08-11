@@ -47,6 +47,7 @@ import { createOpenReplicationUI, createOpenRebuildUI } from "./features/P2PSync
 import { useCompatibilityReview } from "./serviceFeatures/compatibilityReview.ts";
 import { createObsidianCompatibilityReviewUi } from "./serviceFeatures/compatibilityReviewObsidian.ts";
 import { createFileReflectionProvenance } from "./serviceModules/FileReflectionProvenance.ts";
+import { registerCustomOverrides } from "./common/translation.ts";
 export type LiveSyncCore = LiveSyncBaseCore<ObsidianServiceContext, LiveSyncCommands>;
 export default class ObsidianLiveSyncPlugin extends Plugin {
     core: LiveSyncCore;
@@ -213,9 +214,26 @@ export default class ObsidianLiveSyncPlugin extends Plugin {
     }
 
     private async _startUp() {
+        await this.loadCustomOverrides();
         if (!(await this.core.services.control.onLoad())) return;
         const onReady = this.core.services.control.onReady.bind(this.core.services.control);
         this.app.workspace.onLayoutReady(onReady);
+    }
+    private async loadCustomOverrides() {
+        const path = `${this.manifest.dir}/zh-custom.json`;
+        try {
+            if (!(await this.app.vault.adapter.exists(path))) return;
+            const value: unknown = JSON.parse(await this.app.vault.adapter.read(path));
+            if (value === null || Array.isArray(value) || typeof value !== "object") return;
+
+            const overrides: Record<string, string> = {};
+            for (const [key, text] of Object.entries(value)) {
+                if (typeof text === "string") overrides[key] = text;
+            }
+            registerCustomOverrides(overrides);
+        } catch {
+            // A malformed optional override file must not prevent the plug-in from starting.
+        }
     }
     override onload() {
         void this._startUp();

@@ -31,9 +31,9 @@ export function paneGeneral(
         new Setting(paneEl).autoWireToggle("hideFileWarningNotice");
         new Setting(paneEl).autoWireDropDown("networkWarningStyle", {
             options: {
-                [NetworkWarningStyles.BANNER]: "Show full banner",
-                [NetworkWarningStyles.ICON]: "Show icon only",
-                [NetworkWarningStyles.HIDDEN]: "Hide completely",
+                [NetworkWarningStyles.BANNER]: $msg("Show full banner"),
+                [NetworkWarningStyles.ICON]: $msg("Show icon only"),
+                [NetworkWarningStyles.HIDDEN]: $msg("Hide completely"),
             },
         });
         this.addOnSaved("networkWarningStyle", () => {

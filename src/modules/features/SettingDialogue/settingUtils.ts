@@ -11,6 +11,7 @@ import { LOG_LEVEL_NOTICE, Logger } from "octagonal-wheels/common/logger";
 import { isNotFoundError } from "@vrtmrz/livesync-commonlib/compat/common/utils.doc";
 import type PouchDB from "pouchdb-core";
 import type {} from "pouchdb-replication";
+import { translateIfAvailable } from "@/common/translation";
 
 /**
  * Generates a summary of P2P configuration settings
@@ -68,7 +69,7 @@ export function getE2EEConfigSummary(setting: ObsidianLiveSyncSettings, showAdva
 export function getSummaryFromPartialSettings(setting: Partial<ObsidianLiveSyncSettings>, showAdvanced = false) {
     const outputSummary: Record<string, string> = {};
     for (const key of Object.keys(setting) as (keyof ObsidianLiveSyncSettings)[]) {
-        const config = getConfig(key as AllSettingItemKey);
+        const config = getConfig(key as AllSettingItemKey, (message) => translateIfAvailable(message));
         if (!config) continue;
         if (config.isAdvanced && !showAdvanced) continue;
         const value =

@@ -40,6 +40,7 @@ export let currentLang: I18N_LANGS = resolveLanguage("");
 const missingTranslations = [] as string[];
 let __onMissingTranslations = (key: string) => notice(key, LOG_KIND_WARNING);
 const msgCache = new Map<string, string>();
+let customOverrides: Readonly<Record<string, string>> = {};
 
 export function getResolvedLang(lang: I18N_LANGS = currentLang): I18N_LANGS {
     return resolveLanguage(lang);
@@ -64,14 +65,21 @@ export function setLang(lang: I18N_LANGS) {
     msgCache.clear();
 }
 
+export function registerCustomOverrides(overrides: Record<string, string>) {
+    customOverrides = overrides;
+    msgCache.clear();
+}
+
 function _getMessage(key: string, lang: I18N_LANGS) {
     if (key.trim() == "") return key;
+
+    const resolvedLang = resolveLanguage(lang);
+    if (resolvedLang === "zh" && key in customOverrides) return customOverrides[key];
 
     const provisionalEnglish = liveSyncProvisionalEnglishMessages[key as LiveSyncProvisionalMessageKey];
     const msgs =
         allMessages[key] ?? (provisionalEnglish === undefined ? undefined : ({ def: provisionalEnglish } as const));
     if (msgs === undefined && isCommonlibMessageKey(key)) return englishMessageTranslator(key);
-    const resolvedLang = resolveLanguage(lang);
     let msg = msgs?.[resolvedLang];
 
     if (!msg) {

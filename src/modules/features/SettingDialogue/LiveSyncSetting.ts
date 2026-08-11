@@ -18,7 +18,7 @@ import {
     type AllNumericItemKey,
     type AllBooleanItemKey,
 } from "./settingConstants.ts";
-import { $msg } from "@/common/translation";
+import { $msg, translateIfAvailable } from "@/common/translation";
 import { wrapMemo, type AutoWireOption, type OnUpdateResult } from "./SettingPane.ts";
 
 export class LiveSyncSetting extends Setting {
@@ -56,7 +56,7 @@ export class LiveSyncSetting extends Setting {
         return this;
     }
     autoWireSetting(key: AllSettingItemKey, opt?: AutoWireOption) {
-        const conf = getConfig(key);
+        const conf = getConfig(key, (message) => translateIfAvailable(message));
         if (!conf) {
             // throw new Error($msg("liveSyncSetting.errorNoSuchSettingItem", { key }));
             return;
