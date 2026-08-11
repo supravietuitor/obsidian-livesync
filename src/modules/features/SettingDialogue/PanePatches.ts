@@ -16,7 +16,7 @@ import { migrateDatabases } from "./settingUtils.ts";
 import { $msg } from "@/common/translation";
 
 export function panePatches(this: ObsidianLiveSyncSettingTab, paneEl: HTMLElement, { addPanel }: PageFunctions): void {
-    void addPanel(paneEl, "Compatibility (Metadata)").then((paneEl) => {
+    void addPanel(paneEl, $msg("Compatibility (Metadata)")).then((paneEl) => {
         new Setting(paneEl).setClass("wizardHidden").autoWireToggle("deleteMetadataOfDeletedFiles");
 
         new Setting(paneEl).setClass("wizardHidden").autoWireNumeric("automaticallyDeleteMetadataOfDeletedFiles", {
@@ -24,13 +24,13 @@ export function panePatches(this: ObsidianLiveSyncSettingTab, paneEl: HTMLElemen
         });
     });
 
-    void addPanel(paneEl, "Compatibility (Conflict Behaviour)").then((paneEl) => {
+    void addPanel(paneEl, $msg("Compatibility (Conflict Behaviour)")).then((paneEl) => {
         paneEl.addClass("wizardHidden");
         new Setting(paneEl).setClass("wizardHidden").autoWireToggle("disableMarkdownAutoMerge");
         new Setting(paneEl).setClass("wizardHidden").autoWireToggle("writeDocumentsIfConflicted");
     });
 
-    void addPanel(paneEl, "Compatibility (Database structure)").then((paneEl) => {
+    void addPanel(paneEl, $msg("Compatibility (Database structure)")).then((paneEl) => {
         const migrateAllToIndexedDB = async () => {
             const dbToName = this.core.localDatabase.dbname + SuffixDatabaseName + ExtraSuffixIndexedDB;
             const options = {
@@ -117,10 +117,10 @@ export function panePatches(this: ObsidianLiveSyncSettingTab, paneEl: HTMLElemen
         new Setting(paneEl).autoWireToggle("handleFilenameCaseSensitive", { holdValue: true }).setClass("wizardHidden");
     });
 
-    void addPanel(paneEl, "Compatibility (Internal API Usage)").then((paneEl) => {
+    void addPanel(paneEl, $msg("Compatibility (Internal API Usage)")).then((paneEl) => {
         new Setting(paneEl).autoWireToggle("watchInternalFileChanges", { invert: true });
     });
-    void addPanel(paneEl, "Compatibility (Remote Database)").then((paneEl) => {
+    void addPanel(paneEl, $msg("Compatibility (Remote Database)")).then((paneEl) => {
         new Setting(paneEl).autoWireDropDown("E2EEAlgorithm", {
             options: E2EEAlgorithmNames,
         });
@@ -134,7 +134,7 @@ export function panePatches(this: ObsidianLiveSyncSettingTab, paneEl: HTMLElemen
         ),
     });
 
-    void addPanel(paneEl, "Edge case addressing (Database)").then((paneEl) => {
+    void addPanel(paneEl, $msg("Edge case addressing (Database)")).then((paneEl) => {
         new Setting(paneEl)
             .autoWireText("additionalSuffixOfDatabaseName", { holdValue: true })
             .addApplyButton(["additionalSuffixOfDatabaseName"]);
@@ -146,7 +146,7 @@ export function panePatches(this: ObsidianLiveSyncSettingTab, paneEl: HTMLElemen
 
         new Setting(paneEl).autoWireDropDown("hashAlg", {
             options: {
-                "": "Old Algorithm",
+                "": $msg("Old Algorithm"),
                 xxhash32: "xxhash32 (Fast but less collision resistance)",
                 xxhash64: "xxhash64 (Fastest)",
                 "mixed-purejs": "PureJS fallback  (Fast, W/O WebAssembly)",
@@ -157,13 +157,13 @@ export function panePatches(this: ObsidianLiveSyncSettingTab, paneEl: HTMLElemen
             await this.core.localDatabase._prepareHashFunctions();
         });
     });
-    void addPanel(paneEl, "Edge case addressing (Behaviour)").then((paneEl) => {
+    void addPanel(paneEl, $msg("Edge case addressing (Behaviour)")).then((paneEl) => {
         new Setting(paneEl).autoWireToggle("doNotSuspendOnFetching");
         new Setting(paneEl).setClass("wizardHidden").autoWireToggle("doNotDeleteFolder");
         new Setting(paneEl).autoWireToggle("processSizeMismatchedFiles");
     });
 
-    void addPanel(paneEl, "Edge case addressing (Processing)").then((paneEl) => {
+    void addPanel(paneEl, $msg("Edge case addressing (Processing)")).then((paneEl) => {
         new Setting(paneEl).autoWireToggle("disableWorkerForGeneratingChunks");
 
         new Setting(paneEl).autoWireToggle("processSmallFilesInUIThread", {
@@ -173,17 +173,17 @@ export function panePatches(this: ObsidianLiveSyncSettingTab, paneEl: HTMLElemen
     // void addPanel(paneEl, "Edge case addressing (Networking)").then((paneEl) => {
     // new Setting(paneEl).autoWireToggle("useRequestAPI");
     // });
-    void addPanel(paneEl, "Compatibility (Trouble addressed)").then((paneEl) => {
+    void addPanel(paneEl, $msg("Compatibility (Trouble addressed)")).then((paneEl) => {
         new Setting(paneEl).autoWireToggle("disableCheckingConfigMismatch");
     });
-    void addPanel(paneEl, "Remediation").then((paneEl) => {
+    void addPanel(paneEl, $msg("Remediation")).then((paneEl) => {
         const setting = new Setting(paneEl);
         const dateEl = setting.controlEl.createSpan();
         setting
             .addText((text) => {
                 const updateDateText = () => {
                     if (this.editingSettings.maxMTimeForReflectEvents == 0) {
-                        dateEl.textContent = `No limit configured`;
+                        dateEl.textContent = $msg("No limit configured");
                     } else {
                         const date = new Date(this.editingSettings.maxMTimeForReflectEvents);
                         dateEl.textContent = `Limit: ${date.toLocaleString()} (${this.editingSettings.maxMTimeForReflectEvents})`;
