@@ -1,0 +1,50 @@
+name: Build zh fork
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.x'
+      - name: Install
+        run: npm ci
+      - name: Bake i18n
+        run: npm run i18n:bake
+      - name: Build
+        run: npm run build
+      - name: i18n coverage report
+        run: npx tsx _tools/checkI18nCoverage.ts > i18n-coverage.json
+      - name: Upload coverage artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: i18n-coverage
+          path: i18n-coverage.json
+      - name: Upload plugin artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: obsidian-livesync-zh
+          path: |
+            main.js
+            manifest.json
+            styles.css
+      - name: Read version for Release tag
+        id: version
+        run: echo "PLUGIN_VERSION=$(node -p "require('./manifest.json').version")" >> "$GITHUB_OUTPUT"
+      - name: Create Release
+        uses: softprops/action-gh-release@v3
+        with:
+          tag_name: zh-v${{ steps.version.outputs.PLUGIN_VERSION }}
+          files: |
+            main.js
+            manifest.json
+            styles.css
