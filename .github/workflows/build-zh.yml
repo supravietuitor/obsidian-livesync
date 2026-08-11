@@ -25,12 +25,12 @@ jobs:
       - name: i18n coverage report
         run: npx tsx _tools/checkI18nCoverage.ts > i18n-coverage.json
       - name: Upload coverage artifact
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v6
         with:
           name: i18n-coverage
           path: i18n-coverage.json
       - name: Upload plugin artifacts
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v6
         with:
           name: obsidian-livesync-zh
           path: |
