@@ -7,6 +7,7 @@ import {
     type FilePathWithPrefix,
 } from "@vrtmrz/livesync-commonlib/compat/common/types";
 import { EVENT_CONFLICT_CANCELLED, eventHub } from "@/common/events.ts";
+import { $msg } from "@/common/translation";
 import { promiseWithResolvers } from "octagonal-wheels/promises";
 
 export const POSTPONED = Symbol("postponed");
@@ -135,11 +136,11 @@ export class ConflictResolveModal extends Modal {
 
         const diffNavContainer = diffOptionsRow.createDiv("");
         diffNavContainer.addClass("diff-nav");
-        diffNavContainer.createEl("button", { text: "\u25B2 Prev" }, (e) => {
+        diffNavContainer.createEl("button", { text: $msg("▲ Prev") }, (e) => {
             e.addClass("diff-nav-btn");
             e.addEventListener("click", () => this.navigateDiff("prev"));
         });
-        diffNavContainer.createEl("button", { text: "\u25BC Next" }, (e) => {
+        diffNavContainer.createEl("button", { text: $msg("▼ Next") }, (e) => {
             e.addClass("diff-nav-btn");
             e.addEventListener("click", () => this.navigateDiff("next"));
         });
@@ -176,7 +177,7 @@ export class ConflictResolveModal extends Modal {
         this.appendVersionInfo(div2, "added", this.remoteName, date2);
         const actionContainer = contentEl.createDiv("conflict-action-container");
         if (this.readOnly) {
-            actionContainer.createEl("button", { text: "Close" }, (e) => {
+            actionContainer.createEl("button", { text: $msg("Close") }, (e) => {
                 e.addClass("conflict-action-button");
                 e.addEventListener("click", () => this.sendResponse(CANCELLED));
             });
@@ -190,12 +191,12 @@ export class ConflictResolveModal extends Modal {
                 e.addEventListener("click", () => this.sendResponse(this.result.left.rev));
             });
             if (!this.pluginPickMode) {
-                actionContainer.createEl("button", { text: "Concat both" }, (e) => {
+                actionContainer.createEl("button", { text: $msg("Concat both") }, (e) => {
                     e.addClass("conflict-action-button");
                     e.addEventListener("click", () => this.sendResponse(LEAVE_TO_SUBSEQUENT));
                 });
             }
-            actionContainer.createEl("button", { text: !this.pluginPickMode ? "Not now" : "Cancel" }, (e) => {
+            actionContainer.createEl("button", { text: !this.pluginPickMode ? $msg("Not now") : $msg("Cancel") }, (e) => {
                 e.addClass("conflict-action-button");
                 e.addEventListener("click", () => this.sendResponse(this.pluginPickMode ? CANCELLED : POSTPONED));
             });
