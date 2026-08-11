@@ -2458,3 +2458,5 @@ Diff only: Diff only
 "${FILE} / ${COUNT} revisions": "${FILE} / ${COUNT} revisions"
 "Searching ${CURRENT}/${TOTAL}...": "Searching ${CURRENT}/${TOTAL}..."
 "${CURRENT}/${TOTAL} matches": "${CURRENT}/${TOTAL} matches"
+"We don't have any history for this note.": "We don't have any history for this note."
+"Error while loading file.": "Error while loading file."

@@ -141,10 +141,10 @@ export class DocumentHistoryModal extends Modal {
                 this.range.max = "0";
                 this.range.value = "";
                 this.range.disabled = true;
-                this.contentView.setText(`We don't have any history for this note.`);
+                this.contentView.setText($msg("We don't have any history for this note."));
                 this.updateRevisionNavUI();
             } else {
-                this.contentView.setText(`Error while loading file.`);
+                this.contentView.setText($msg("Error while loading file."));
                 Logger(ex, LOG_LEVEL_VERBOSE);
             }
         }
