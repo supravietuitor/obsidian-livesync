@@ -1,12 +1,30 @@
 import { afterEach, describe, expect, it } from "vitest";
 
 import { englishMessageTranslator } from "@vrtmrz/livesync-commonlib/context";
-import { $msg, setLang, translateLiveSyncMessage } from "@/common/translation";
+import { $msg, $t, registerCustomOverrides, setLang, translateLiveSyncMessage } from "@/common/translation";
 import { SUPPORTED_I18N_LANGS } from "@/common/rosetta";
 import { liveSyncProvisionalEnglishMessages } from "@/common/messages/LiveSyncProvisionalMessages";
 
 describe("LiveSync-owned translation catalogue", () => {
-    afterEach(() => setLang("def"));
+    afterEach(() => {
+        registerCustomOverrides({});
+        setLang("def");
+    });
+
+    it("uses Chinese custom overrides and clears cached values when replaced", () => {
+        setLang("zh");
+        registerCustomOverrides({ "custom test key": "第一次覆盖" });
+        expect($t("custom test key")).toBe("第一次覆盖");
+
+        registerCustomOverrides({ "custom test key": "第二次覆盖" });
+        expect($t("custom test key")).toBe("第二次覆盖");
+    });
+
+    it("does not apply Chinese custom overrides to other languages or inherited keys", () => {
+        registerCustomOverrides({ "custom test key": "中文覆盖" });
+        expect($t("custom test key", "es")).toBe("custom test key");
+        expect($t("toString", "zh")).toBe("toString");
+    });
 
     it("selects a translated language without delegating catalogue ownership to Commonlib", () => {
         setLang("es");

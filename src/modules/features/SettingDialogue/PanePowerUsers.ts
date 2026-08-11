@@ -16,7 +16,9 @@ export function panePowerUsers(
             paneEl,
             "div",
             {
-                text: `If you reached the payload size limit when using IBM Cloudant, please decrease batch size and batch limit to a lower value.`,
+                text: $msg(
+                    "If you reached the payload size limit when using IBM Cloudant, please decrease batch size and batch limit to a lower value."
+                ),
             },
             undefined,
             this.onlyOnCouchDB
@@ -35,7 +37,7 @@ export function panePowerUsers(
         const passphrase_options: Record<ConfigPassphraseStore, string> = {
             "": $msg("Default"),
             LOCALSTORAGE: $msg("Use a custom passphrase"),
-            ASK_AT_LAUNCH: "Ask an passphrase at every launch",
+            ASK_AT_LAUNCH: $msg("Ask a passphrase at every launch"),
         };
 
         new Setting(paneEl)
