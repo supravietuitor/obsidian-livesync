@@ -13,6 +13,7 @@ import { visibleOnly } from "./SettingPane.ts";
 import { PouchDB } from "@vrtmrz/livesync-commonlib/compat/pouchdb/pouchdb-browser";
 import { ExtraSuffixIndexedDB } from "@vrtmrz/livesync-commonlib/compat/common/types";
 import { migrateDatabases } from "./settingUtils.ts";
+import { $msg } from "@/common/translation";
 
 export function panePatches(this: ObsidianLiveSyncSettingTab, paneEl: HTMLElement, { addPanel }: PageFunctions): void {
     void addPanel(paneEl, "Compatibility (Metadata)").then((paneEl) => {
@@ -85,13 +86,13 @@ export function panePatches(this: ObsidianLiveSyncSettingTab, paneEl: HTMLElemen
                 cls: "op-warn-info",
             });
             const setting = new Setting(paneEl)
-                .setName("Database Adapter")
+                .setName($msg("Database Adapter"))
                 .setDesc("Select the database adapter to use. ");
             const el = setting.controlEl.createDiv({});
             el.setText(`Current adapter: ${this.editingSettings.useIndexedDBAdapter ? "IndexedDB" : "IDB"}`);
             if (!this.editingSettings.useIndexedDBAdapter) {
                 setting.addButton((button) => {
-                    button.setButtonText("Switch to IndexedDB").onClick(async () => {
+                    button.setButtonText($msg("Switch to IndexedDB")).onClick(async () => {
                         Logger("Migrating all data to IndexedDB...", LOG_LEVEL_NOTICE);
                         await migrateAllToIndexedDB();
                         Logger(
@@ -102,7 +103,7 @@ export function panePatches(this: ObsidianLiveSyncSettingTab, paneEl: HTMLElemen
                 });
             } else {
                 setting.addButton((button) => {
-                    button.setButtonText("Switch to IDB").onClick(async () => {
+                    button.setButtonText($msg("Switch to IDB")).onClick(async () => {
                         Logger("Migrating all data to IDB...", LOG_LEVEL_NOTICE);
                         await migrateAllToIDB();
                         Logger(
