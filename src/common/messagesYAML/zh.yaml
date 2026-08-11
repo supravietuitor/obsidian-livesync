@@ -1650,3 +1650,6 @@ Next match: 下一个匹配项
 Older revision: 较旧修订
 Newer revision: 较新修订
 Diff only: 仅显示差异
+"${FILE} / ${COUNT} revisions": "${FILE} / ${COUNT} 个修订"
+"Searching ${CURRENT}/${TOTAL}...": "正在搜索 ${CURRENT}/${TOTAL}..."
+"${CURRENT}/${TOTAL} matches": "${CURRENT}/${TOTAL} 个匹配项"

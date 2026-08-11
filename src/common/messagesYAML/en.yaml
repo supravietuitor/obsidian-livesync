@@ -2455,3 +2455,6 @@ Next match: Next match
 Older revision: Older revision
 Newer revision: Newer revision
 Diff only: Diff only
+"${FILE} / ${COUNT} revisions": "${FILE} / ${COUNT} revisions"
+"Searching ${CURRENT}/${TOTAL}...": "Searching ${CURRENT}/${TOTAL}..."
+"${CURRENT}/${TOTAL} matches": "${CURRENT}/${TOTAL} matches"

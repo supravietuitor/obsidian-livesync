@@ -131,7 +131,9 @@ export class DocumentHistoryModal extends Modal {
             this.revs_info = w._revs_info?.filter((e) => e?.status == "available") ?? [];
             this.range.max = `${Math.max(this.revs_info.length - 1, 0)}`;
             this.range.value = this.range.max;
-            this.fileInfo.setText(`${this.file} / ${this.revs_info.length} revisions`);
+            this.fileInfo.setText(
+                $msg("${FILE} / ${COUNT} revisions", { FILE: this.file, COUNT: `${this.revs_info.length}` })
+            );
             await this.loadRevs(initialRev);
             this.updateRevisionNavUI();
         } catch (ex) {
@@ -450,7 +452,9 @@ export class DocumentHistoryModal extends Modal {
             const revInfo = this.revs_info[i];
             const rev = revInfo.rev;
 
-            this.searchProgressIndicator.setText(`Searching ${i + 1}/${end}...`);
+            this.searchProgressIndicator.setText(
+                $msg("Searching ${CURRENT}/${TOTAL}...", { CURRENT: `${i + 1}`, TOTAL: `${end}` })
+            );
 
             const doc = await db.getDBEntry(this.file, { rev: rev }, false, false, true);
             if (doc === false) continue;
@@ -504,7 +508,9 @@ export class DocumentHistoryModal extends Modal {
             this.searchResultIndicator.setText(this.searchKeyword ? $msg("No matches found") : "");
         } else {
             const current = this.currentSearchIndex >= 0 ? this.currentSearchIndex + 1 : 0;
-            this.searchResultIndicator.setText(`${current}/${this.searchResults.length} matches`);
+            this.searchResultIndicator.setText(
+                $msg("${CURRENT}/${TOTAL} matches", { CURRENT: `${current}`, TOTAL: `${this.searchResults.length}` })
+            );
         }
 
         const hasResults = this.searchResults.length > 0;
