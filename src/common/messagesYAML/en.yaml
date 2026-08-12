@@ -2440,7 +2440,6 @@ You should perform this operation only in exceptional circumstances, such as whe
 "Self-hosted LiveSync has paused remote synchronisation for compatibility review. ": "Self-hosted LiveSync has paused remote synchronisation for compatibility review. "
 "Review why": "Review why"
 "Review why synchronisation is paused": "Review why synchronisation is paused"
-"Copy settings as a new setup URI (With customization sync)": "Copy settings as a new setup URI (With customization sync)"
 "Please enter the Setup URI that was generated during server installation or on another device, along with the vault passphrase.": "Please enter the Setup URI that was generated during server installation or on another device, along with the vault passphrase."
 "Note that you can generate a new Setup URI by running the \"Copy settings as a new Setup URI\" command in the command palette.": "Note that you can generate a new Setup URI by running the \"Copy settings as a new Setup URI\" command in the command palette."
 "On the source device, from the command palette, run the 'Show settings as a QR code' command.": "On the source device, from the command palette, run the 'Show settings as a QR code' command."
