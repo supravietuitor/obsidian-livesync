@@ -30,7 +30,7 @@ export class ConflictResolveModal extends Modal {
     consumed = false;
     private readonly resultPromise = promiseWithResolvers<MergeDialogResult>();
 
-    title: string = "Conflicting changes";
+    title: string = $t("Conflicting changes");
 
     pluginPickMode: boolean = false;
     readOnly: boolean = false;
@@ -55,11 +55,11 @@ export class ConflictResolveModal extends Modal {
         this.pluginPickMode = pluginPickMode || false;
         this.readOnly = options?.readOnly ?? false;
         if (this.pluginPickMode) {
-            this.title = "Pick a version";
+            this.title = $t("Pick a version");
             this.remoteName = `${remoteName || "Remote"}`;
             this.localName = "Local";
         } else if (this.readOnly) {
-            this.title = options?.title ?? "Vault and database revision";
+            this.title = options?.title ?? $t("Vault and database revision");
             this.localName = options?.localName ?? "Vault file";
             this.remoteName = options?.remoteName ?? "Database revision";
         }

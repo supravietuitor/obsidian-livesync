@@ -640,7 +640,7 @@ export class DocumentHistoryModal extends Modal {
                     void scheduleOnceIfDuplicated("loadRevs", () => this.loadRevs());
                 });
             });
-            label.appendText("Highlight diff");
+            label.appendText($msg("Highlight diff"));
         });
 
         const diffOnlyLabel = diffOptionsRow.createEl("label", {});

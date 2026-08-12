@@ -2473,6 +2473,10 @@ Revert: Revert
 "Parse setting file": "Parse setting file"
 "Save without connecting": "Save without connecting"
 "Unknown error": "Unknown error"
+"Conflicting changes": "Conflicting changes"
+"Pick a version": "Pick a version"
+"Vault and database revision": "Vault and database revision"
+"Highlight diff": "Highlight diff"
 "Changing the database adapter requires migration and an Obsidian restart.": "Changing the database adapter requires migration and an Obsidian restart."
 "Restarting Obsidian is strongly recommended before applying this change.": "Restarting Obsidian is strongly recommended before applying this change."
 Vault history: Vault history

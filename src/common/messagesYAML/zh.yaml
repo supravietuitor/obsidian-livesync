@@ -1689,6 +1689,10 @@ Revert: 恢复
 "Strongly Recommended": "强烈推荐"
 "Save without connecting": "不连接而保存"
 "Unknown error": "未知错误"
+"Conflicting changes": "存在冲突更改"
+"Pick a version": "选择版本"
+"Vault and database revision": "仓库与数据库修订"
+"Highlight diff": "突出显示差异"
 "Changing the database adapter requires migration and an Obsidian restart.": "更改数据库适配器需要迁移数据并重启 Obsidian。"
 "Restarting Obsidian is strongly recommended before applying this change.": "强烈建议在应用此更改前重启 Obsidian。"
 Vault history: 仓库历史
