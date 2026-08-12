@@ -427,7 +427,7 @@ export class ModuleLog extends AbstractObsidianModule {
 
         this.addCommand({
             id: "view-log",
-            name: "Show log",
+            name: $msg("Show log"),
             callback: () => {
                 void this.services.API.showWindow(VIEW_TYPE_LOG);
             },

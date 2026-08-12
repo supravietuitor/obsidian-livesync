@@ -11,12 +11,12 @@ import {
 } from "@vrtmrz/livesync-commonlib/compat/common/types";
 import { ConflictResolveModal, POSTPONED } from "./InteractiveConflictResolving/ConflictResolveModal.ts";
 import { AbstractObsidianModule } from "@/modules/AbstractObsidianModule.ts";
+import { $msg } from "@/common/translation";
 import { displayRev } from "@/common/utils.ts";
 import { fireAndForget } from "octagonal-wheels/promises";
 import { serialized } from "octagonal-wheels/concurrency/lock";
 import type { LiveSyncCore } from "@/main.ts";
 import { EVENT_CONFLICT_CANCELLED, EVENT_ON_UNRESOLVED_ERROR, eventHub } from "@/common/events.ts";
-import { $msg } from "@/common/translation.ts";
 import type { Editor, MarkdownFileInfo, MarkdownView } from "@/deps.ts";
 
 export class ModuleInteractiveConflictResolver extends AbstractObsidianModule {
@@ -80,14 +80,14 @@ export class ModuleInteractiveConflictResolver extends AbstractObsidianModule {
         });
         this.addCommand({
             id: "livesync-conflictcheck",
-            name: "Pick a file to resolve conflict",
+            name: $msg("Pick a file to resolve conflict"),
             callback: async () => {
                 await this.pickFileForResolve();
             },
         });
         this.addCommand({
             id: "livesync-all-conflictcheck",
-            name: "Resolve all conflicted files",
+            name: $msg("Resolve all conflicted files"),
             callback: async () => {
                 await this.allConflictCheck();
             },
