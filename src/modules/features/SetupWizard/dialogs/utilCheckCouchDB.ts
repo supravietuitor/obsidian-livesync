@@ -70,7 +70,7 @@ async function updateRemoteSetting(
     if (res.status == 200) {
         return true;
     } else {
-        return res.text || "Unknown error";
+        return res.text || $msg("Unknown error");
     }
 }
 
