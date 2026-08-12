@@ -11,6 +11,7 @@ import {
     type FullScanOptions,
 } from "@vrtmrz/livesync-commonlib/compat/serviceFeatures/offlineScanner";
 import { adjustSettingToRemoteIfNeeded, cancelScheduledInitialisation, processVaultInitialisation } from "./redFlag";
+import { $t } from "@/common/translation";
 
 export const SIMPLE_FETCH_STAGE1_REMOTE_WINS = "Overwrite all with remote files";
 export const SIMPLE_FETCH_STAGE1_NEWER_WINS = "Compare time and take newer";
@@ -91,6 +92,9 @@ export async function askSimpleFetchMode(
     const remembered = getRememberedSimpleFetchMode(host);
     if (remembered) return remembered;
 
+    const choices = (...values: string[]) => values.map((value) => $t(value));
+    const choiceId = (selected: string, values: string[]) => values.find((value) => $t(value) === selected);
+
     const msg = `We are about to retrieve the remote data.
 
 Firstly, how shall we handle the data retrieved from this remote source?
@@ -104,25 +108,31 @@ Firstly, how shall we handle the data retrieved from this remote source?
   If you want to have more control over the synchronisation process, or want to review the changes before applying, you can choose this option to use the detailed flow.
     `;
     const stage1 = await host.services.UI.confirm.confirmWithMessage(
-        "Data retrieval scheduled",
+        $t("Data retrieval scheduled"),
         msg,
-        [
+        choices(
             SIMPLE_FETCH_STAGE1_NEWER_WINS,
             SIMPLE_FETCH_STAGE1_REMOTE_WINS,
             SIMPLE_FETCH_STAGE1_DETAILED,
             SIMPLE_FETCH_STAGE1_CANCEL,
-        ],
-        SIMPLE_FETCH_STAGE1_NEWER_WINS,
+        ),
+        $t(SIMPLE_FETCH_STAGE1_NEWER_WINS),
         0
     );
 
-    if (!stage1 || stage1 === SIMPLE_FETCH_STAGE1_CANCEL) return "cancelled";
+    const stage1Id = stage1 && choiceId(stage1, [
+        SIMPLE_FETCH_STAGE1_NEWER_WINS,
+        SIMPLE_FETCH_STAGE1_REMOTE_WINS,
+        SIMPLE_FETCH_STAGE1_DETAILED,
+        SIMPLE_FETCH_STAGE1_CANCEL,
+    ]);
+    if (!stage1Id || stage1Id === SIMPLE_FETCH_STAGE1_CANCEL) return "cancelled";
 
-    if (stage1 === SIMPLE_FETCH_STAGE1_DETAILED) {
-        return buildSimpleFetchResult(stage1)!;
+    if (stage1Id === SIMPLE_FETCH_STAGE1_DETAILED) {
+        return buildSimpleFetchResult(stage1Id)!;
     }
 
-    if (stage1 === SIMPLE_FETCH_STAGE1_REMOTE_WINS) {
+    if (stage1Id === SIMPLE_FETCH_STAGE1_REMOTE_WINS) {
         const msg = `Since you have chosen to overwrite all local files with remote data, **how would you like to handle local files that are not present in the remote database?**
 
 - **${SIMPLE_FETCH_STAGE2_REMOTE_DELETE_ALL}**: Local-only files and remote-deleted files will be removed.
@@ -131,18 +141,20 @@ Firstly, how shall we handle the data retrieved from this remote source?
   This option will keep all your local files, but it may cause duplicates if there are files that exist on local but not on remote. You can clean up these duplicates manually after the synchronisation.`;
 
         const stage2 = await host.services.UI.confirm.confirmWithMessage(
-            "How to handle extra existing local files?",
+            $t("How to handle extra existing local files?"),
             msg,
-            [SIMPLE_FETCH_STAGE2_REMOTE_DELETE_ALL, SIMPLE_FETCH_STAGE2_REMOTE_DELETE_NONE, STAGE2_ABORT],
-            SIMPLE_FETCH_STAGE2_REMOTE_DELETE_NONE,
+            choices(SIMPLE_FETCH_STAGE2_REMOTE_DELETE_ALL, SIMPLE_FETCH_STAGE2_REMOTE_DELETE_NONE, STAGE2_ABORT),
+            $t(SIMPLE_FETCH_STAGE2_REMOTE_DELETE_NONE),
             0
         );
-        if (!stage2) return "cancelled";
-        if (stage2 === STAGE2_ABORT) {
+        const stage2Id = stage2 &&
+            choiceId(stage2, [SIMPLE_FETCH_STAGE2_REMOTE_DELETE_ALL, SIMPLE_FETCH_STAGE2_REMOTE_DELETE_NONE, STAGE2_ABORT]);
+        if (!stage2Id) return "cancelled";
+        if (stage2Id === STAGE2_ABORT) {
             return "aborted";
         }
-        rememberSimpleFetchMode(host, stage1, stage2);
-        return buildSimpleFetchResult(stage1, stage2)!;
+        rememberSimpleFetchMode(host, stage1Id, stage2Id);
+        return buildSimpleFetchResult(stage1Id, stage2Id)!;
     }
 
     if (stage1 === SIMPLE_FETCH_STAGE1_NEWER_WINS) {
@@ -155,18 +167,20 @@ Firstly, how shall we handle the data retrieved from this remote source?
   `;
 
         const stage2 = await host.services.UI.confirm.confirmWithMessage(
-            "Conflict & Deletion Options",
+            $t("Conflict & Deletion Options"),
             msg,
-            [SIMPLE_FETCH_STAGE2_NEWER_CLEANUP, SIMPLE_FETCH_STAGE2_NEWER_SYNC_ALL, STAGE2_ABORT],
-            SIMPLE_FETCH_STAGE2_NEWER_SYNC_ALL,
+            choices(SIMPLE_FETCH_STAGE2_NEWER_CLEANUP, SIMPLE_FETCH_STAGE2_NEWER_SYNC_ALL, STAGE2_ABORT),
+            $t(SIMPLE_FETCH_STAGE2_NEWER_SYNC_ALL),
             0
         );
-        if (!stage2) return "cancelled";
-        if (stage2 === STAGE2_ABORT) {
+        const stage2Id = stage2 &&
+            choiceId(stage2, [SIMPLE_FETCH_STAGE2_NEWER_CLEANUP, SIMPLE_FETCH_STAGE2_NEWER_SYNC_ALL, STAGE2_ABORT]);
+        if (!stage2Id) return "cancelled";
+        if (stage2Id === STAGE2_ABORT) {
             return "aborted";
         }
-        rememberSimpleFetchMode(host, stage1, stage2);
-        return buildSimpleFetchResult(stage1, stage2)!;
+        rememberSimpleFetchMode(host, stage1Id, stage2Id);
+        return buildSimpleFetchResult(stage1Id, stage2Id)!;
     }
 
     return "cancelled";
@@ -234,7 +248,7 @@ export async function askAndPerformFastSetupOnScheduledFetchAll(
             const canRelease = await host.services.UI.confirm.askSelectStringDialogue(
                 "Some files failed to synchronise. What would you like to do?",
                 [RERUN_PROCESS, RELEASE_FLAG_PROCESS],
-                { defaultAction: RELEASE_FLAG_PROCESS, title: "Synchronisation Issues Detected" }
+                { defaultAction: RELEASE_FLAG_PROCESS, title: $t("Synchronisation Issues Detected") }
             );
             if (canRelease === RERUN_PROCESS) {
                 log("User chose to reboot and re-run the process.", LOG_LEVEL_NOTICE);

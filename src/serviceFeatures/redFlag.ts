@@ -18,6 +18,7 @@ import type {
     FetchEverythingResult,
     RebuildEverythingResult,
 } from "@/modules/features/SetupWizard/dialogs/setupDialogTypes";
+import { $t } from "@/common/translation";
 import { askAndPerformFastSetupOnScheduledFetchAll } from "./redFlag.simpleFetch";
 import { ConnectionStringParser } from "@vrtmrz/livesync-commonlib/compat/common/ConnectionString";
 import { activateRemoteConfiguration } from "@vrtmrz/livesync-commonlib/remote-configurations";
@@ -63,8 +64,9 @@ const REMOTE_CANCEL = "Cancel";
 async function askAndActivateRemoteDatabase(host: NecessaryServices<"UI" | "setting", never>, log: LogFunction) {
     const settings = host.services.setting.currentSettings();
     if (settings.remoteConfigurations && Object.keys(settings.remoteConfigurations).length > 1) {
-        const message =
-            "Multiple remote configurations detected. Please select the remote configuration you want to fetch from.";
+        const message = $t(
+            "Multiple remote configurations detected. Please select the remote configuration you want to fetch from."
+        );
         const options = Object.entries(settings.remoteConfigurations).map(([id, config]) => {
             const parsed = ConnectionStringParser.parse(config.uri);
             const displayURI = (config.uri.split("@").pop() || "").substring(0, 20) + "..."; // Show only the last part of URI for better readability and privacy.
@@ -74,7 +76,7 @@ async function askAndActivateRemoteDatabase(host: NecessaryServices<"UI" | "sett
             };
         });
         options.push({
-            name: REMOTE_KEEP_CURRENT,
+            name: $t(REMOTE_KEEP_CURRENT),
             id: "keep_current",
         });
         options.push({
@@ -86,7 +88,7 @@ async function askAndActivateRemoteDatabase(host: NecessaryServices<"UI" | "sett
         // const defaultAction =
         //     options.find((option) => option.id === settings.activeConfigurationId)?.name || selections[0];
         const selectedId = await host.services.UI.confirm.askSelectStringDialogue(message, selections, {
-            title: "Select Remote Configuration",
+            title: $t("Select Remote Configuration"),
             defaultAction: REMOTE_KEEP_CURRENT,
         });
         const selectedConfig = options.find((option) => option.name === selectedId);
