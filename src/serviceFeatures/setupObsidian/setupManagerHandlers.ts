@@ -6,7 +6,7 @@ import {
 } from "@vrtmrz/livesync-commonlib/compat/events/coreEvents";
 import { fireAndForget } from "@vrtmrz/livesync-commonlib/compat/common/utils";
 import type { NecessaryServices } from "@vrtmrz/livesync-commonlib/compat/interfaces/ServiceModule";
-import { $msg } from "@/common/translation";
+import { $t } from "@/common/translation";
 
 const ONBOARDING_NOTICE_DURATION_MS = 60_000;
 
@@ -49,7 +49,7 @@ export function useSetupManagerHandlersFeature(
     host.services.appLifecycle.onLoaded.addHandler(() => {
         host.services.API.addCommand({
             id: "livesync-opensetupuri",
-             name: $msg("Use the copied setup URI (Formerly Open setup URI)"),
+             name: $t("Use the copied setup URI (Formerly Open setup URI)"),
             callback: () => fireAndForget(openSetupURI(setupManager)),
         });
 

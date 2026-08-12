@@ -6,7 +6,7 @@ import { EVENT_REQUEST_COPY_SETUP_URI } from "@vrtmrz/livesync-commonlib/compat/
 import { fireAndForget } from "@vrtmrz/livesync-commonlib/compat/common/utils";
 import type { NecessaryServices } from "@vrtmrz/livesync-commonlib/compat/interfaces/ServiceModule";
 import type { SetupFeatureHost } from "./types";
-import { $msg } from "@/common/translation";
+import { $t } from "@/common/translation";
 
 export async function askEncryptingPassphrase(host: SetupFeatureHost): Promise<string | false> {
     return await host.services.UI.confirm.askString(
@@ -50,7 +50,7 @@ export function useSetupURIFeature(host: NecessaryServices<"API" | "UI" | "setti
     host.services.appLifecycle.onLoaded.addHandler(() => {
         host.services.API.addCommand({
             id: "livesync-copysetupuri",
-             name: $msg("Copy settings as a new setup URI"),
+             name: $t("Copy settings as a new setup URI"),
             checkCallback: (checking) => {
                 if (!host.services.setting.currentSettings().isConfigured) return false;
                 if (!checking) fireAndForget(copySetupURI(host, log));
