@@ -2473,7 +2473,6 @@ Revert: Revert
 "Parse setting file": "Parse setting file"
 "Save without connecting": "Save without connecting"
 "Create or connect to database and continue": "Create or connect to database and continue"
-"Connect to existing database and continue": "Connect to existing database and continue"
 "CouchDB Configuration": "CouchDB Configuration"
 "CouchDB validates the database name when you connect. The name must not be empty.": "CouchDB validates the database name when you connect. The name must not be empty."
 "Use Internal API": "Use Internal API"
