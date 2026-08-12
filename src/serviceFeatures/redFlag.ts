@@ -303,7 +303,9 @@ export async function adjustSettingToRemote(
             log("Remote configuration matches local configuration. No changes applied.", LOG_LEVEL_NOTICE);
         } else {
             await host.services.UI.confirm.askSelectStringDialogue(
-                "Your settings differed slightly from the server's. The plug-in has supplemented the incompatible parts with the server settings!",
+                $msg(
+                    "Your settings differed slightly from the server's. The plug-in has supplemented the incompatible parts with the server settings!"
+                ),
                 ["OK"] as const,
                 {
                     defaultAction: "OK",
@@ -442,7 +444,7 @@ export async function verifyAndUnlockSuspension(
     }
     if (
         (await host.services.UI.confirm.askYesNoDialog(
-            "Do you want to resume file and database processing, and restart obsidian now?",
+            $msg("Do you want to resume file and database processing, and restart obsidian now?"),
             { defaultOption: "Yes", timeout: 15 }
         )) != "yes"
     ) {
