@@ -86,7 +86,7 @@ export function paneMaintenance(
 
         new Setting(paneEl)
             .setName($msg("Emergency restart"))
-            .setDesc("Disables all synchronization and restart.")
+            .setDesc($msg("Disables all synchronization and restart."))
             .addButton((button) =>
                 button
                     .setButtonText($msg("Flag and restart"))
@@ -146,13 +146,13 @@ export function paneMaintenance(
             .addOnUpdate(this.onlyOnCouchDB);
 
         new Setting(paneEl)
-            .setName("Reset journal received history")
+            .setName($msg("Reset journal received history"))
             .setDesc(
                 "Initialise journal received history. On the next sync, every item except this device sent will be downloaded again."
             )
             .addButton((button) =>
                 button
-                    .setButtonText("Reset received")
+                    .setButtonText($msg("Reset received"))
                     .setWarning()
                     .setDisabled(false)
                     .onClick(async () => {
@@ -167,13 +167,13 @@ export function paneMaintenance(
             .addOnUpdate(this.onlyOnMinIO);
 
         new Setting(paneEl)
-            .setName("Reset journal sent history")
+            .setName($msg("Reset journal sent history"))
             .setDesc(
                 "Initialise journal sent history. On the next sync, every item except this device received will be sent again."
             )
             .addButton((button) =>
                 button
-                    .setButtonText("Reset sent history")
+                    .setButtonText($msg("Reset sent history"))
                     .setWarning()
                     .setDisabled(false)
                     .onClick(async () => {
@@ -316,7 +316,7 @@ export function paneMaintenance(
             .setDesc($msg("Overwrite remote with local DB and passphrase."))
             .addButton((button) =>
                 button
-                    .setButtonText("Send")
+                    .setButtonText($msg("Send"))
                     .setWarning()
                     .setDisabled(false)
                     .onClick(async () => {
@@ -325,8 +325,8 @@ export function paneMaintenance(
             );
 
         new Setting(paneEl)
-            .setName("Reset all journal counter")
-            .setDesc("Initialise all journal history, On the next sync, every item will be received and sent.")
+            .setName($msg("Reset all journal counter"))
+            .setDesc($msg("Initialise all journal history, On the next sync, every item will be received and sent."))
             .addButton((button) =>
                 button
                     .setButtonText($msg("Reset all"))
@@ -340,8 +340,8 @@ export function paneMaintenance(
             .addOnUpdate(this.onlyOnMinIO);
 
         new Setting(paneEl)
-            .setName("Purge all journal counter")
-            .setDesc("Purge all download/upload cache.")
+            .setName($msg("Purge all journal counter"))
+            .setDesc($msg("Purge all download/upload cache."))
             .addButton((button) =>
                 button
                     .setButtonText($msg("Reset all"))
@@ -380,7 +380,7 @@ export function paneMaintenance(
 
     void addPanel(paneEl, $msg("Reset")).then((paneEl) => {
         new Setting(paneEl)
-            .setName("Delete local database to reset or uninstall Self-hosted LiveSync")
+            .setName($msg("Delete local database to reset or uninstall Self-hosted LiveSync"))
             .addButton((button) =>
                 button
                     .setButtonText($msg("Delete"))
