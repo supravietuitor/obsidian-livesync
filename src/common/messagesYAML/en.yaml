@@ -2467,7 +2467,6 @@ Revert: Revert
 "I've made a backup, mark this device 'resolved'": "I've made a backup, mark this device 'resolved'"
 "The remote database is locked and this device is resolved.": "The remote database is locked and this device is resolved."
 "I'm ready, unlock the database": "I'm ready, unlock the database"
-"The IndexedDB adapter may cause memory leaks when used with LiveSync mode.": "The IndexedDB adapter may cause memory leaks when used with LiveSync mode."
 "CouchDB Configuration": "CouchDB Configuration"
 "CouchDB validates the database name when you connect. The name must not be empty.": "CouchDB validates the database name when you connect. The name must not be empty."
 "Use Internal API": "Use Internal API"
