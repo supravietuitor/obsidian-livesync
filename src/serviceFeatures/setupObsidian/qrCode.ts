@@ -7,6 +7,7 @@ import {
 import { EVENT_REQUEST_SHOW_SETUP_QR } from "@vrtmrz/livesync-commonlib/compat/events/coreEvents";
 import { fireAndForget } from "@vrtmrz/livesync-commonlib/compat/common/utils";
 import type { SetupFeatureHost } from "./types";
+import { $msg } from "@/common/translation";
 
 export async function encodeSetupSettingsAsQR(host: SetupFeatureHost) {
     const settingString = encodeSettingsToQRCodeData(host.services.setting.currentSettings());
@@ -64,7 +65,7 @@ export function useSetupQRCodeFeature(host: NecessaryServices<"API" | "UI" | "se
     host.services.appLifecycle.onLoaded.addHandler(() => {
         host.services.API.addCommand({
             id: "livesync-setting-qr",
-            name: "Show settings as a QR code",
+             name: $msg("Show settings as a QR code"),
             checkCallback: (checking) => {
                 if (!host.services.setting.currentSettings().isConfigured) return false;
                 if (!checking) fireAndForget(encodeSetupSettingsAsQR(host));
