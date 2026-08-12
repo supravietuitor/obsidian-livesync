@@ -2435,20 +2435,9 @@ You should perform this operation only in exceptional circumstances, such as whe
     when the server data is completely corrupted, when changes on all other
     devices are no longer needed, or when the database size has become unusually
     large in comparison to the Vault size.
-"Please configure your end-to-end encryption settings.": "Please configure your end-to-end encryption settings."
-"Enter your passphrase": "Enter your passphrase"
-"Obfuscate Properties": "Obfuscate Properties"
-"Encryption Algorithm": "Encryption Algorithm"
-"Please understand that this is intended behaviour.": "Please understand that this is intended behaviour."
-"Passphrase is required.": "Passphrase is required."
-"Failed to parse Setup-URI.": "Failed to parse Setup-URI."
-"Enter Setup URI": "Enter Setup URI"
 "Setup-URI": "Setup-URI"
-"The Setup-URI is valid and ready to use.": "The Setup-URI is valid and ready to use."
 "The Setup-URI does not appear to be valid...": "The Setup-URI does not appear to be valid..."
 "Learn more about signalling and TURN": "Learn more about signalling and TURN"
-"Enter TURN username": "Enter TURN username"
-"Enter TURN credential": "Enter TURN credential"
 "Conflicting changes": "Conflicting changes"
 "Pick a version": "Pick a version"
 "Changing the database adapter requires migration and an Obsidian restart.": "Changing the database adapter requires migration and an Obsidian restart."
