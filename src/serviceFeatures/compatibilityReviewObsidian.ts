@@ -10,6 +10,7 @@ import {
     compatibilityReviewDetailsMarkdown,
     compatibilityReviewSummaryMarkdown,
 } from "./compatibilityReviewMarkdown.ts";
+import { $t } from "@/common/translation";
 
 const REVIEW_DETAILS = "Review compatibility details";
 const KEEP_PAUSED = "Keep synchronisation paused";
@@ -57,9 +58,9 @@ export class ObsidianCompatibilityReviewUi implements CompatibilityReviewUi {
         let reminderAnchor: HTMLAnchorElement | undefined;
         const fragment = createFragment((documentFragment) => {
             documentFragment.createSpan({
-                text: "Self-hosted LiveSync has paused remote synchronisation for compatibility review. ",
+                text: $t("Self-hosted LiveSync has paused remote synchronisation for compatibility review. "),
             });
-            documentFragment.createEl("a", { text: "Review why" }, (anchor) => {
+            documentFragment.createEl("a", { text: $t("Review why") }, (anchor) => {
                 reminderAnchor = anchor;
                 anchor.addEventListener("click", (event) => {
                     event.preventDefault();

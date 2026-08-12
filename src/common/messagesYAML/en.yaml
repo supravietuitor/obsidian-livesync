@@ -2437,6 +2437,11 @@ You should perform this operation only in exceptional circumstances, such as whe
     large in comparison to the Vault size.
 "The Setup-URI does not appear to be valid...": "The Setup-URI does not appear to be valid..."
 "Learn more about signalling and TURN": "Learn more about signalling and TURN"
+"Self-hosted LiveSync has paused remote synchronisation for compatibility review. ": "Self-hosted LiveSync has paused remote synchronisation for compatibility review. "
+"Review why": "Review why"
+"Review why synchronisation is paused": "Review why synchronisation is paused"
+"Copy settings as a new setup URI (With customization sync)": "Copy settings as a new setup URI (With customization sync)"
+"Copy settings as a new setup URI (Full)": "Copy settings as a new setup URI (Full)"
 "Conflicting changes": "Conflicting changes"
 "Pick a version": "Pick a version"
 "Changing the database adapter requires migration and an Obsidian restart.": "Changing the database adapter requires migration and an Obsidian restart."

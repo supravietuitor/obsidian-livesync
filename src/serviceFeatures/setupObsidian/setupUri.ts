@@ -60,7 +60,7 @@ export function useSetupURIFeature(host: NecessaryServices<"API" | "UI" | "setti
 
         host.services.API.addCommand({
             id: "livesync-copysetupuri-short",
-            name: "Copy settings as a new setup URI (With customization sync)",
+             name: $t("Copy settings as a new setup URI (With customization sync)"),
             checkCallback: (checking) => {
                 const settings = host.services.setting.currentSettings();
                 if (!settings.isConfigured || !settings.usePluginSync) return false;
@@ -71,7 +71,7 @@ export function useSetupURIFeature(host: NecessaryServices<"API" | "UI" | "setti
 
         host.services.API.addCommand({
             id: "livesync-copysetupurifull",
-            name: "Copy settings as a new setup URI (Full)",
+             name: $t("Copy settings as a new setup URI (Full)"),
             checkCallback: (checking) => {
                 const settings = host.services.setting.currentSettings();
                 if (!settings.isConfigured || !settings.useAdvancedMode) return false;
