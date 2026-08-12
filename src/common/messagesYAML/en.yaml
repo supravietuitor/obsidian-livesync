@@ -2466,7 +2466,6 @@ Revert: Revert
 "The remote database is locked for synchronization because this device is not resolved.": "The remote database is locked for synchronization because this device is not resolved."
 "I've made a backup, mark this device 'resolved'": "I've made a backup, mark this device 'resolved'"
 "Toggle LiveSync": "Toggle LiveSync"
-"Toggle All Sync.": "Toggle All Sync."
 "Please configure your end-to-end encryption settings.": "Please configure your end-to-end encryption settings."
 "Enter your passphrase": "Enter your passphrase"
 "Obfuscate Properties": "Obfuscate Properties"
