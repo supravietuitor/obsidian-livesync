@@ -2478,7 +2478,6 @@ Revert: Revert
 "Enter a complete HTTP or HTTPS URL.": "Enter a complete HTTP or HTTPS URL."
 "Copy settings as a new setup URI": "Copy settings as a new setup URI"
 "Use the copied setup URI (Formerly Open setup URI)": "Use the copied setup URI (Formerly Open setup URI)"
-"Show settings as a QR code": "Show settings as a QR code"
 "CouchDB Configuration": "CouchDB Configuration"
 "CouchDB validates the database name when you connect. The name must not be empty.": "CouchDB validates the database name when you connect. The name must not be empty."
 "Use Internal API": "Use Internal API"
