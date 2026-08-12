@@ -37,7 +37,11 @@
     }
 </script>
 
-<DialogHeader title="Your {title || 'Data'} is ready to be copied" />
+<DialogHeader
+    title={translateMessage("Your ${TITLE} is ready to be copied", {
+        TITLE: title || translateMessage("Data"),
+    })}
+/>
 <Instruction>
     <InputRow label={title || translateMessage("Data to Copy")}>
         <textarea readonly rows="4">{dataToCopy}</textarea>
@@ -47,10 +51,12 @@
     </InputRow>
 </Instruction>
 <InfoNote visible={copied}>
-    Your {title || "data"} has been copied to the clipboard.
+    {translateMessage("Your ${TITLE} has been copied to the clipboard.", {
+        TITLE: title || translateMessage("data"),
+    })}
 </InfoNote>
 <UserDecisions>
-    <Decision title="OK" important={true} {commit} />
+    <Decision title={translateMessage("OK")} important={true} {commit} />
 </UserDecisions>
 
 <style>

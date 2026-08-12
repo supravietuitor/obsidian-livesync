@@ -1693,6 +1693,11 @@ Revert: 恢复
 "Scan storage and database again": "重新扫描存储和数据库"
 "Abort synchronization immediately": "立即中止同步"
 "Unknown error": "未知错误"
+"Your ${TITLE} is ready to be copied": "你的${TITLE}已准备好复制"
+"Your ${TITLE} has been copied to the clipboard.": "你的${TITLE}已复制到剪贴板。"
+Data: 数据
+data: 数据
+OK: 确定
 "Conflicting changes": "存在冲突更改"
 "Pick a version": "选择版本"
 "Vault and database revision": "仓库与数据库修订"

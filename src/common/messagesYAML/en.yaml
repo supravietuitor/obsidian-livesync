@@ -2477,6 +2477,11 @@ Revert: Revert
 "Scan storage and database again": "Scan storage and database again"
 "Abort synchronization immediately": "Abort synchronization immediately"
 "Unknown error": "Unknown error"
+"Your ${TITLE} is ready to be copied": "Your ${TITLE} is ready to be copied"
+"Your ${TITLE} has been copied to the clipboard.": "Your ${TITLE} has been copied to the clipboard."
+Data: Data
+data: data
+OK: OK
 "Conflicting changes": "Conflicting changes"
 "Pick a version": "Pick a version"
 "Changing the database adapter requires migration and an Obsidian restart.": "Changing the database adapter requires migration and an Obsidian restart."
