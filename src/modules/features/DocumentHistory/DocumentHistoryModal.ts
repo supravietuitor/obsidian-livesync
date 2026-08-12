@@ -132,7 +132,9 @@ export class DocumentHistoryModal extends Modal {
             this.range.max = `${Math.max(this.revs_info.length - 1, 0)}`;
             this.range.value = this.range.max;
             this.fileInfo.setText(
-                $t("${FILE} / ${COUNT} revisions", { FILE: this.file, COUNT: `${this.revs_info.length}` })
+                $t("${FILE} / ${COUNT} revisions")
+                    .replace("${FILE}", this.file)
+                    .replace("${COUNT}", `${this.revs_info.length}`)
             );
             await this.loadRevs(initialRev);
             this.updateRevisionNavUI();
@@ -453,7 +455,9 @@ export class DocumentHistoryModal extends Modal {
             const rev = revInfo.rev;
 
             this.searchProgressIndicator.setText(
-                $t("Searching ${CURRENT}/${TOTAL}...", { CURRENT: `${i + 1}`, TOTAL: `${end}` })
+                $t("Searching ${CURRENT}/${TOTAL}...")
+                    .replace("${CURRENT}", `${i + 1}`)
+                    .replace("${TOTAL}", `${end}`)
             );
 
             const doc = await db.getDBEntry(this.file, { rev: rev }, false, false, true);
@@ -509,7 +513,9 @@ export class DocumentHistoryModal extends Modal {
         } else {
             const current = this.currentSearchIndex >= 0 ? this.currentSearchIndex + 1 : 0;
             this.searchResultIndicator.setText(
-                $t("${CURRENT}/${TOTAL} matches", { CURRENT: `${current}`, TOTAL: `${this.searchResults.length}` })
+                $t("${CURRENT}/${TOTAL} matches")
+                    .replace("${CURRENT}", `${current}`)
+                    .replace("${TOTAL}", `${this.searchResults.length}`)
             );
         }
 
@@ -573,7 +579,7 @@ export class DocumentHistoryModal extends Modal {
             e.addEventListener("click", () => this.navigateSearch("prev"));
         });
         this.searchNextBtn = searchRow.createEl("button", { text: "\u25BC" }, (e) => {
-            e.title = $msg("Next match");
+            e.title = $t("Next match");
             e.disabled = true;
             e.addEventListener("click", () => this.navigateSearch("next"));
         });
@@ -588,7 +594,7 @@ export class DocumentHistoryModal extends Modal {
 
         this.revPrevBtn = revNavRow.createEl("button", { text: "\u25C0" }, (e) => {
             e.addClass("history-rev-nav-btn");
-            e.title = $msg("Older revision");
+            e.title = $t("Older revision");
             e.disabled = true;
             e.addEventListener("click", () => this.navigateVersion("older"));
         });
@@ -607,7 +613,7 @@ export class DocumentHistoryModal extends Modal {
 
         this.revNextBtn = revNavRow.createEl("button", { text: "\u25B6" }, (e) => {
             e.addClass("history-rev-nav-btn");
-            e.title = $msg("Newer revision");
+            e.title = $t("Newer revision");
             e.disabled = true;
             e.addEventListener("click", () => this.navigateVersion("newer"));
         });
@@ -654,7 +660,7 @@ export class DocumentHistoryModal extends Modal {
                 void scheduleOnceIfDuplicated("loadRevs", () => this.loadRevs());
             });
         });
-        diffOnlyLabel.appendText($msg("Diff only"));
+            diffOnlyLabel.appendText($t("Diff only"));
         diffOnlyLabel.addClass("diff-only-label");
         diffOnlyLabel.setCssStyles({ display: this.showDiff ? "inline-block" : "none" });
         this.diffOnlyLabel = diffOnlyLabel;
@@ -664,13 +670,13 @@ export class DocumentHistoryModal extends Modal {
         this.diffNavContainer.addClass("diff-nav");
         this.diffNavContainer.setCssStyles({ display: this.showDiff ? "flex" : "none" });
 
-        this.diffNavContainer.createEl("button", { text: $msg("▲ Prev") }, (e) => {
+        this.diffNavContainer.createEl("button", { text: $t("▲ Prev") }, (e) => {
             e.addClass("diff-nav-btn");
             e.addEventListener("click", () => {
                 this.navigateDiff("prev");
             });
         });
-        this.diffNavContainer.createEl("button", { text: $msg("▼ Next") }, (e) => {
+        this.diffNavContainer.createEl("button", { text: $t("▼ Next") }, (e) => {
             e.addClass("diff-nav-btn");
             e.addEventListener("click", () => {
                 this.navigateDiff("next");
@@ -682,7 +688,7 @@ export class DocumentHistoryModal extends Modal {
         this.info = contentEl.createDiv("");
         this.info.addClass("op-info");
         fireAndForget(async () => await this.loadFile(this.initialRev));
-        const div = contentEl.createDiv({ text: $msg("Loading old revisions...") });
+        const div = contentEl.createDiv({ text: $t("Loading old revisions...") });
         this.contentView = div;
         div.addClass("op-scrollable");
         div.addClass("op-pre");
