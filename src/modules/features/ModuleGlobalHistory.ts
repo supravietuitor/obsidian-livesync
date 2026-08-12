@@ -1,13 +1,13 @@
 import { AbstractObsidianModule } from "@/modules/AbstractObsidianModule.ts";
 import { VIEW_TYPE_GLOBAL_HISTORY, GlobalHistoryView } from "./GlobalHistory/GlobalHistoryView.ts";
 import type { WorkspaceLeaf } from "@/deps.ts";
-import { $msg } from "@/common/translation";
+import { $t } from "@/common/translation";
 
 export class ModuleObsidianGlobalHistory extends AbstractObsidianModule {
     _everyOnloadStart(): Promise<boolean> {
         this.addCommand({
             id: "livesync-global-history",
-            name: $msg("Show vault history"),
+            name: $t("Show vault history"),
             callback: () => {
                 this.showGlobalHistory();
             },
