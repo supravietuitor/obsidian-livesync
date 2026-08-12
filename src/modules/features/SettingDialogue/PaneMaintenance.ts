@@ -6,7 +6,7 @@ import { LiveSyncCouchDBReplicator } from "@vrtmrz/livesync-commonlib/compat/rep
 import { LiveSyncSetting as Setting } from "./LiveSyncSetting.ts";
 import type { ObsidianLiveSyncSettingTab } from "./ObsidianLiveSyncSettingTab";
 import { visibleOnly, type PageFunctions } from "./SettingPane";
-import { $msg } from "@/common/translation";
+import { $msg, $t } from "@/common/translation";
 export function paneMaintenance(
     this: ObsidianLiveSyncSettingTab,
     paneEl: HTMLElement,
@@ -19,7 +19,7 @@ export function paneMaintenance(
         paneEl,
         "div",
         {
-            text: "The remote database is locked for synchronization to prevent vault corruption because this device isn't marked as 'resolved'. Please backup your vault, reset the local database, and select 'Mark this device as resolved'. This warning will persist until the device is confirmed as resolved by replication.",
+            text: $t("The remote database is locked for synchronization because this device is not resolved."),
             cls: "op-warn",
         },
         (c) => {
@@ -27,7 +27,7 @@ export function paneMaintenance(
                 c,
                 "button",
                 {
-                    text: "I've made a backup, mark this device 'resolved'",
+                    text: $t("I've made a backup, mark this device 'resolved'"),
                     cls: "mod-warning",
                 },
                 (e) => {
@@ -46,7 +46,7 @@ export function paneMaintenance(
         paneEl,
         "div",
         {
-            text: "To prevent unwanted vault corruption, the remote database has been locked for synchronization. (This device is marked 'resolved') When all your devices are marked 'resolved', unlock the database. This warning kept showing until confirming the device is resolved by the replication",
+            text: $t("The remote database is locked and this device is resolved."),
             cls: "op-warn",
         },
         (c) =>
@@ -54,7 +54,7 @@ export function paneMaintenance(
                 c,
                 "button",
                 {
-                    text: "I'm ready, unlock the database",
+                    text: $t("I'm ready, unlock the database"),
                     cls: "mod-warning",
                 },
                 (e) => {

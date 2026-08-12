@@ -1664,3 +1664,7 @@ Recovery and Repair: 恢复与修复
 Add: 添加
 Apply: 应用
 Revert: 恢复
+"The remote database is locked for synchronization because this device is not resolved.": "远端数据库已锁定，因为此设备尚未标记为已处理。"
+"I've made a backup, mark this device 'resolved'": "我已完成备份，将此设备标记为已处理"
+"The remote database is locked and this device is resolved.": "远端数据库已锁定，此设备已标记为已处理。"
+"I'm ready, unlock the database": "我已准备好，解锁数据库"
