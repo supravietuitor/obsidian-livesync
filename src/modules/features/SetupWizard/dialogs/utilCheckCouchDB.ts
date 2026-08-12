@@ -1,5 +1,5 @@
 import { requestToCouchDBWithCredentials } from "@/common/utils";
-import { $msg } from "@/common/translation";
+import { $t } from "@/common/translation";
 import { Logger } from "@vrtmrz/livesync-commonlib/compat/common/logger";
 import type { ObsidianLiveSyncSettings } from "@vrtmrz/livesync-commonlib/compat/common/types";
 import { parseHeaderValues } from "@vrtmrz/livesync-commonlib/compat/common/utils";
@@ -70,7 +70,7 @@ async function updateRemoteSetting(
     if (res.status == 200) {
         return true;
     } else {
-        return res.text || $msg("Unknown error");
+        return res.text || $t("Unknown error");
     }
 }
 
