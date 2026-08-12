@@ -102,9 +102,9 @@ export function paneRemoteConfig(
                 info: getE2EEConfigSummary(this.editingSettings),
             });
         };
-        void addPanel(paneEl, "E2EE Configuration", () => {}).then((paneEl) => {
+        void addPanel(paneEl, $msg("E2EE Configuration"), () => {}).then((paneEl) => {
             new SveltePanel(InfoPanel, paneEl, E2EESummaryWritable);
-            const setupButton = new Setting(paneEl).setName("Configure E2EE");
+            const setupButton = new Setting(paneEl).setName($msg("Configure E2EE"));
             setupButton
                 .addButton((button) =>
                     button
@@ -114,7 +114,7 @@ export function paneRemoteConfig(
                             await setupManager.onlyE2EEConfiguration(UserMode.Update, originalSettings);
                             updateE2EESummary();
                         })
-                        .setButtonText("Configure")
+                        .setButtonText($msg("Configure"))
                         .setWarning()
                 )
                 .addButton((button) =>
