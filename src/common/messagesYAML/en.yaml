@@ -2448,7 +2448,6 @@ Vault history: Vault history
 "No Synchronisation Settings Found": "No Synchronisation Settings Found"
 "Retry": "Retry"
 "Could not read the remote's synchronisation settings. Retry, or continue the overwrite with this device's settings. A working connection is still required.": "Could not read the remote's synchronisation settings. Retry, or continue the overwrite with this device's settings. A working connection is still required."
-"Could Not Read Synchronisation Settings": "Could Not Read Synchronisation Settings"
 "⚠️ Important Notice": "⚠️ Important Notice"
 "To minimise the creation of new conflicts": "To minimise the creation of new conflicts"
 "The files in this Vault are almost identical to the server's.": "The files in this Vault are almost identical to the server's."
