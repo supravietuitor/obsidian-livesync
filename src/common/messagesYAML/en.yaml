@@ -2435,7 +2435,6 @@ You should perform this operation only in exceptional circumstances, such as whe
     when the server data is completely corrupted, when changes on all other
     devices are no longer needed, or when the database size has become unusually
     large in comparison to the Vault size.
-"Enabling end-to-end encryption ensures that your data is encrypted on your device before being sent to the remote server. This means that even if someone gains access to the server, they won't be able to read your data without the passphrase. Make sure to remember your passphrase, as it will be required to decrypt your data on other devices.": "Enabling end-to-end encryption ensures that your data is encrypted on your device before being sent to the remote server. This means that even if someone gains access to the server, they won't be able to read your data without the passphrase. Make sure to remember your passphrase, as it will be required to decrypt your data on other devices."
 "Conflicting changes": "Conflicting changes"
 "Pick a version": "Pick a version"
 "Changing the database adapter requires migration and an Obsidian restart.": "Changing the database adapter requires migration and an Obsidian restart."
