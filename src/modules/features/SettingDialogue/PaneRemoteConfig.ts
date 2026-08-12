@@ -377,7 +377,7 @@ export function paneRemoteConfig(
                     row.addButton((btn) =>
                         btn
                             .setButtonText("✅")
-                            .setTooltip("Activate", { delay: 10, placement: "top" })
+                             .setTooltip($msg("Activate"), { delay: 10, placement: "top" })
                             .setDisabled(config.id === this.editingSettings.activeConfigurationId)
                             .onClick(async () => {
                                 this.editingSettings.activeConfigurationId = config.id;
