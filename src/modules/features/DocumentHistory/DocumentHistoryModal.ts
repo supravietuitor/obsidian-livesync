@@ -17,7 +17,7 @@ import { isPlainText, stripPrefix } from "@vrtmrz/livesync-commonlib/compat/stri
 import { scheduleOnceIfDuplicated } from "octagonal-wheels/concurrency/lock";
 import type { LiveSyncBaseCore } from "@/LiveSyncBaseCore.ts";
 import { compatGlobal } from "@vrtmrz/livesync-commonlib/compat/common/coreEnvFunctions";
-import { $msg } from "@/common/translation";
+import { $msg, $t } from "@/common/translation";
 import {
     DOCUMENT_HISTORY_PREFERENCE_KEYS,
     loadDocumentHistoryPreference,
@@ -132,7 +132,7 @@ export class DocumentHistoryModal extends Modal {
             this.range.max = `${Math.max(this.revs_info.length - 1, 0)}`;
             this.range.value = this.range.max;
             this.fileInfo.setText(
-                $msg("${FILE} / ${COUNT} revisions", { FILE: this.file, COUNT: `${this.revs_info.length}` })
+                $t("${FILE} / ${COUNT} revisions", { FILE: this.file, COUNT: `${this.revs_info.length}` })
             );
             await this.loadRevs(initialRev);
             this.updateRevisionNavUI();
@@ -141,10 +141,10 @@ export class DocumentHistoryModal extends Modal {
                 this.range.max = "0";
                 this.range.value = "";
                 this.range.disabled = true;
-                this.contentView.setText($msg("We don't have any history for this note."));
+                this.contentView.setText($t("We don't have any history for this note."));
                 this.updateRevisionNavUI();
             } else {
-                this.contentView.setText($msg("Error while loading file."));
+                this.contentView.setText($t("Error while loading file."));
                 Logger(ex, LOG_LEVEL_VERBOSE);
             }
         }
@@ -443,7 +443,7 @@ export class DocumentHistoryModal extends Modal {
         const totalRevs = this.revs_info.length;
         const end = Math.min(totalRevs, limit);
 
-        this.searchProgressIndicator.setText($msg("Searching..."));
+        this.searchProgressIndicator.setText($t("Searching..."));
 
         const dmp = new diff_match_patch();
 
@@ -453,7 +453,7 @@ export class DocumentHistoryModal extends Modal {
             const rev = revInfo.rev;
 
             this.searchProgressIndicator.setText(
-                $msg("Searching ${CURRENT}/${TOTAL}...", { CURRENT: `${i + 1}`, TOTAL: `${end}` })
+                $t("Searching ${CURRENT}/${TOTAL}...", { CURRENT: `${i + 1}`, TOTAL: `${end}` })
             );
 
             const doc = await db.getDBEntry(this.file, { rev: rev }, false, false, true);
@@ -499,17 +499,17 @@ export class DocumentHistoryModal extends Modal {
             }
         }
 
-        this.searchProgressIndicator.setText($msg("Done"));
+        this.searchProgressIndicator.setText($t("Done"));
         this.updateSearchUI();
     }
 
     updateSearchUI() {
         if (this.searchResults.length === 0) {
-            this.searchResultIndicator.setText(this.searchKeyword ? $msg("No matches found") : "");
+            this.searchResultIndicator.setText(this.searchKeyword ? $t("No matches found") : "");
         } else {
             const current = this.currentSearchIndex >= 0 ? this.currentSearchIndex + 1 : 0;
             this.searchResultIndicator.setText(
-                $msg("${CURRENT}/${TOTAL} matches", { CURRENT: `${current}`, TOTAL: `${this.searchResults.length}` })
+                $t("${CURRENT}/${TOTAL} matches", { CURRENT: `${current}`, TOTAL: `${this.searchResults.length}` })
             );
         }
 
@@ -555,7 +555,7 @@ export class DocumentHistoryModal extends Modal {
 
         const searchInput = searchRow.createEl("input", {
             type: "text",
-            placeholder: $msg("Search in history (last 100)..."),
+            placeholder: $t("Search in history (last 100)..."),
         });
         searchInput.addClass("history-search-input");
         searchInput.addEventListener("input", () => {
@@ -568,7 +568,7 @@ export class DocumentHistoryModal extends Modal {
         });
 
         this.searchPrevBtn = searchRow.createEl("button", { text: "\u25B2" }, (e) => {
-            e.title = $msg("Previous match");
+            e.title = $t("Previous match");
             e.disabled = true;
             e.addEventListener("click", () => this.navigateSearch("prev"));
         });
