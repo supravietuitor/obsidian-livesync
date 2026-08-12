@@ -13,7 +13,7 @@ import { visibleOnly } from "./SettingPane.ts";
 import { PouchDB } from "@vrtmrz/livesync-commonlib/compat/pouchdb/pouchdb-browser";
 import { ExtraSuffixIndexedDB } from "@vrtmrz/livesync-commonlib/compat/common/types";
 import { migrateDatabases } from "./settingUtils.ts";
-import { $msg } from "@/common/translation";
+import { $msg, $t } from "@/common/translation";
 
 export function panePatches(this: ObsidianLiveSyncSettingTab, paneEl: HTMLElement, { addPanel }: PageFunctions): void {
     void addPanel(paneEl, $msg("Compatibility (Metadata)")).then((paneEl) => {
@@ -78,11 +78,11 @@ export function panePatches(this: ObsidianLiveSyncSettingTab, paneEl: HTMLElemen
         {
             const infoClass = this.editingSettings.useIndexedDBAdapter ? "op-warn" : "op-warn-info";
             paneEl.createDiv({
-                text: "The IndexedDB adapter often offers superior performance in certain scenarios, but it has been found to cause memory leaks when used with LiveSync mode. When using LiveSync mode, please use IDB adapter instead.",
+                text: $t("The IndexedDB adapter may cause memory leaks when used with LiveSync mode."),
                 cls: infoClass,
             });
             paneEl.createDiv({
-                text: "Changing this setting requires migrating existing data (a bit time may be taken) and restarting Obsidian. Please make sure to back up your data before proceeding.",
+                text: $t("Changing the database adapter requires migration and an Obsidian restart."),
                 cls: "op-warn-info",
             });
             const setting = new Setting(paneEl)
