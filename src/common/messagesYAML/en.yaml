@@ -2465,18 +2465,6 @@ Apply: Apply
 Revert: Revert
 "The remote database is locked for synchronization because this device is not resolved.": "The remote database is locked for synchronization because this device is not resolved."
 "I've made a backup, mark this device 'resolved'": "I've made a backup, mark this device 'resolved'"
-"CouchDB validates the database name when you connect. The name must not be empty.": "CouchDB validates the database name when you connect. The name must not be empty."
-"Use Internal API": "Use Internal API"
-"Custom Headers": "Custom Headers"
-"Use JWT Authentication": "Use JWT Authentication"
-"JWT Key": "JWT Key"
-"Enter your JWT secret or private key": "Enter your JWT secret or private key"
-"S3/MinIO/R2 Configuration": "S3/MinIO/R2 Configuration"
-"Secret Access Key": "Secret Access Key"
-"Enter your Secret Access Key": "Enter your Secret Access Key"
-"Use Path-Style Access": "Use Path-Style Access"
-"Folder Prefix": "Folder Prefix"
-"Enter a folder prefix (optional)": "Enter a folder prefix (optional)"
 "Toggle LiveSync": "Toggle LiveSync"
 "Toggle All Sync.": "Toggle All Sync."
 "Scan storage and database again": "Scan storage and database again"
@@ -2484,9 +2472,6 @@ Revert: Revert
 "Unknown error": "Unknown error"
 "Your ${TITLE} is ready to be copied": "Your ${TITLE} is ready to be copied"
 "Your ${TITLE} has been copied to the clipboard.": "Your ${TITLE} has been copied to the clipboard."
-Data: Data
-data: data
-OK: OK
 "To stop the countdown, tap anywhere on the dialogue": "To stop the countdown, tap anywhere on the dialogue"
 "Signalling relay URLs": "Signalling relay URLs"
 "Use the project's public signalling relay": "Use the project's public signalling relay"
