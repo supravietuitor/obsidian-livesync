@@ -2474,7 +2474,6 @@ Revert: Revert
 "Save without connecting": "Save without connecting"
 "Create or connect to database and continue": "Create or connect to database and continue"
 "Connect to existing database and continue": "Connect to existing database and continue"
-"Test connection and save": "Test connection and save"
 "CouchDB Configuration": "CouchDB Configuration"
 "CouchDB validates the database name when you connect. The name must not be empty.": "CouchDB validates the database name when you connect. The name must not be empty."
 "Use Internal API": "Use Internal API"
