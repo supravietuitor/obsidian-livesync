@@ -2463,7 +2463,6 @@ Diff only: Diff only
 Add: Add
 Apply: Apply
 Revert: Revert
-"The remote database is locked for synchronization because this device is not resolved.": "The remote database is locked for synchronization because this device is not resolved."
 "Please configure your end-to-end encryption settings.": "Please configure your end-to-end encryption settings."
 "Enter your passphrase": "Enter your passphrase"
 "Obfuscate Properties": "Obfuscate Properties"
