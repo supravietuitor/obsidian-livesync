@@ -2458,7 +2458,6 @@ Diff only: Diff only
 "${FILE} / ${COUNT} revisions": "${FILE} / ${COUNT} revisions"
 "Searching ${CURRENT}/${TOTAL}...": "Searching ${CURRENT}/${TOTAL}..."
 "${CURRENT}/${TOTAL} matches": "${CURRENT}/${TOTAL} matches"
-"We don't have any history for this note.": "We don't have any history for this note."
 "Please configure your end-to-end encryption settings.": "Please configure your end-to-end encryption settings."
 "Enter your passphrase": "Enter your passphrase"
 "Obfuscate Properties": "Obfuscate Properties"
