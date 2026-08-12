@@ -2445,7 +2445,6 @@ You should perform this operation only in exceptional circumstances, such as whe
 "Synchronisation paused for compatibility review": "Synchronisation paused for compatibility review"
 "Compatibility review details": "Compatibility review details"
 "Review compatibility details": "Review compatibility details"
-"Keep synchronisation paused": "Keep synchronisation paused"
 "Please enter the Setup URI that was generated during server installation or on another device, along with the vault passphrase.": "Please enter the Setup URI that was generated during server installation or on another device, along with the vault passphrase."
 "Note that you can generate a new Setup URI by running the \"Copy settings as a new Setup URI\" command in the command palette.": "Note that you can generate a new Setup URI by running the \"Copy settings as a new Setup URI\" command in the command palette."
 "On the source device, from the command palette, run the 'Show settings as a QR code' command.": "On the source device, from the command palette, run the 'Show settings as a QR code' command."
