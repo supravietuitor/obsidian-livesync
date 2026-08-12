@@ -2471,7 +2471,6 @@ Revert: Revert
 "Abort synchronization immediately": "Abort synchronization immediately"
 "Unknown error": "Unknown error"
 "Your ${TITLE} is ready to be copied": "Your ${TITLE} is ready to be copied"
-"Your ${TITLE} has been copied to the clipboard.": "Your ${TITLE} has been copied to the clipboard."
 "Please configure your end-to-end encryption settings.": "Please configure your end-to-end encryption settings."
 "Enter your passphrase": "Enter your passphrase"
 "Obfuscate Properties": "Obfuscate Properties"
