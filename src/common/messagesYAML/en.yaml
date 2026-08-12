@@ -2470,3 +2470,7 @@ Revert: Revert
 "The IndexedDB adapter may cause memory leaks when used with LiveSync mode.": "The IndexedDB adapter may cause memory leaks when used with LiveSync mode."
 "Changing the database adapter requires migration and an Obsidian restart.": "Changing the database adapter requires migration and an Obsidian restart."
 "Restarting Obsidian is strongly recommended before applying this change.": "Restarting Obsidian is strongly recommended before applying this change."
+Vault history: Vault history
+"From:": "From:"
+"To:": "To:"
+"Info:": "Info:"
