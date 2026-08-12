@@ -6,7 +6,7 @@ import {
 } from "@vrtmrz/livesync-commonlib/compat/events/coreEvents";
 import { fireAndForget } from "@vrtmrz/livesync-commonlib/compat/common/utils";
 import type { NecessaryServices } from "@vrtmrz/livesync-commonlib/compat/interfaces/ServiceModule";
-import { $t } from "@/common/translation";
+import { $msg, $t } from "@/common/translation";
 
 const ONBOARDING_NOTICE_DURATION_MS = 60_000;
 
