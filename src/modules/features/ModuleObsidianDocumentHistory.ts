@@ -5,12 +5,13 @@ import type { FilePathWithPrefix, LoadedEntry, DocumentID } from "@vrtmrz/livesy
 import { AbstractObsidianModule } from "@/modules/AbstractObsidianModule.ts";
 import { DocumentHistoryModal } from "./DocumentHistory/DocumentHistoryModal.ts";
 import { fireAndForget } from "octagonal-wheels/promises";
+import { $t } from "@/common/translation";
 
 export class ModuleObsidianDocumentHistory extends AbstractObsidianModule {
     _everyOnloadStart(): Promise<boolean> {
         this.addCommand({
             id: "livesync-history",
-            name: "Show history",
+            name: $t("Show history"),
             callback: () => {
                 const file = this.services.vault.getActiveFilePath();
                 if (file) this.showHistory(file, undefined);
@@ -19,7 +20,7 @@ export class ModuleObsidianDocumentHistory extends AbstractObsidianModule {
 
         this.addCommand({
             id: "livesync-filehistory",
-            name: "Pick a file to show history",
+            name: $t("Pick a file to show history"),
             callback: () => {
                 fireAndForget(async () => await this.fileHistory());
             },
@@ -44,7 +45,7 @@ export class ModuleObsidianDocumentHistory extends AbstractObsidianModule {
         }
         notes.sort((a, b) => b.mtime - a.mtime);
         const notesList = notes.map((e) => e.dispPath);
-        const target = await this.core.confirm.askSelectString("File to view History", notesList);
+        const target = await this.core.confirm.askSelectString($t("File to view History"), notesList);
         if (target) {
             const targetId = notes.find((e) => e.dispPath == target)!;
             this.showHistory(targetId.path, targetId.id);

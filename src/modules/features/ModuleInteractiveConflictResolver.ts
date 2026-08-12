@@ -11,7 +11,7 @@ import {
 } from "@vrtmrz/livesync-commonlib/compat/common/types";
 import { ConflictResolveModal, POSTPONED } from "./InteractiveConflictResolving/ConflictResolveModal.ts";
 import { AbstractObsidianModule } from "@/modules/AbstractObsidianModule.ts";
-import { $msg } from "@/common/translation";
+import { $msg, $t } from "@/common/translation";
 import { displayRev } from "@/common/utils.ts";
 import { fireAndForget } from "octagonal-wheels/promises";
 import { serialized } from "octagonal-wheels/concurrency/lock";
@@ -71,7 +71,7 @@ export class ModuleInteractiveConflictResolver extends AbstractObsidianModule {
     _everyOnloadStart(): Promise<boolean> {
         this.addCommand({
             id: "livesync-checkdoc-conflicted",
-            name: "Resolve if conflicted.",
+            name: $t("Resolve if conflicted."),
             editorCallback: (editor: Editor, view: MarkdownView | MarkdownFileInfo) => {
                 const file = view.file;
                 if (!file) return;

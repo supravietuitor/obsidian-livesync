@@ -2468,6 +2468,13 @@ Revert: Revert
 "The remote database is locked and this device is resolved.": "The remote database is locked and this device is resolved."
 "I'm ready, unlock the database": "I'm ready, unlock the database"
 "The IndexedDB adapter may cause memory leaks when used with LiveSync mode.": "The IndexedDB adapter may cause memory leaks when used with LiveSync mode."
+"Resolve if conflicted.": "Resolve if conflicted."
+"Show history": "Show history"
+"Pick a file to show history": "Pick a file to show history"
+"File to view History": "File to view History"
+"Write setting markdown manually": "Write setting markdown manually"
+"Parse setting file": "Parse setting file"
+"Generate full report for opening the issue with debug info": "Generate full report for opening the issue with debug info"
 "Changing the database adapter requires migration and an Obsidian restart.": "Changing the database adapter requires migration and an Obsidian restart."
 "Restarting Obsidian is strongly recommended before applying this change.": "Restarting Obsidian is strongly recommended before applying this change."
 Vault history: Vault history

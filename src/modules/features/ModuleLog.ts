@@ -434,7 +434,7 @@ export class ModuleLog extends AbstractObsidianModule {
         });
         this.addCommand({
             id: "dump-debug-info",
-            name: "Generate full report for opening the issue with debug info",
+            name: $t("Generate full report for opening the issue with debug info"),
             callback: async () => {
                 const recentLog = [...logForDump];
                 const report = await generateReport(this.services.setting.currentSettings(), this.core);

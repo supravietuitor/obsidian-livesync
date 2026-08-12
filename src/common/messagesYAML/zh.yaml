@@ -1669,6 +1669,13 @@ Revert: 恢复
 "The remote database is locked and this device is resolved.": "远端数据库已锁定，此设备已标记为已处理。"
 "I'm ready, unlock the database": "我已准备好，解锁数据库"
 "The IndexedDB adapter may cause memory leaks when used with LiveSync mode.": "在 LiveSync 模式下使用 IndexedDB 适配器可能导致内存泄漏。"
+"Resolve if conflicted.": "如有冲突则处理"
+"Show history": "显示历史记录"
+"Pick a file to show history": "选择要查看历史记录的文件"
+"File to view History": "选择要查看历史记录的文件"
+"Write setting markdown manually": "手动写入设置 Markdown"
+"Parse setting file": "解析设置文件"
+"Generate full report for opening the issue with debug info": "生成包含调试信息的完整问题报告"
 "Changing the database adapter requires migration and an Obsidian restart.": "更改数据库适配器需要迁移数据并重启 Obsidian。"
 "Restarting Obsidian is strongly recommended before applying this change.": "强烈建议在应用此更改前重启 Obsidian。"
 Vault history: 仓库历史
