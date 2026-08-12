@@ -2454,7 +2454,6 @@ Vault history: Vault history
 "Do you want to resume file and database processing, and restart obsidian now?": "Do you want to resume file and database processing, and restart obsidian now?"
 "We are about to retrieve the remote data.": "We are about to retrieve the remote data."
 "Firstly, how shall we handle the data retrieved from this remote source?": "Firstly, how shall we handle the data retrieved from this remote source?"
-"Compares the modified time of files and takes the newer one.": "Compares the modified time of files and takes the newer one."
 "⚠️ Important Notice": "⚠️ Important Notice"
 "To minimise the creation of new conflicts": "To minimise the creation of new conflicts"
 "The files in this Vault are almost identical to the server's.": "The files in this Vault are almost identical to the server's."
