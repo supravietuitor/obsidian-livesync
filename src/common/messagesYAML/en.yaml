@@ -2485,3 +2485,6 @@ Vault history: Vault history
 "Keep local files even if deleted on remote": "Keep local files even if deleted on remote"
 "Cancel all and reboot": "Cancel all and reboot"
 "Synchronisation Issues Detected": "Synchronisation Issues Detected"
+"Reboot to re-run the process": "Reboot to re-run the process"
+"Finalise the process and resume normal operation": "Finalise the process and resume normal operation"
+"Some files failed to synchronise. What would you like to do?": "Some files failed to synchronise. What would you like to do?"

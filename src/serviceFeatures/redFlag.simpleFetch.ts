@@ -245,12 +245,13 @@ export async function askAndPerformFastSetupOnScheduledFetchAll(
             })
         );
         if (!syncResult) {
+            const resultChoices = [RERUN_PROCESS, RELEASE_FLAG_PROCESS];
             const canRelease = await host.services.UI.confirm.askSelectStringDialogue(
-                "Some files failed to synchronise. What would you like to do?",
-                [RERUN_PROCESS, RELEASE_FLAG_PROCESS],
-                { defaultAction: RELEASE_FLAG_PROCESS, title: $t("Synchronisation Issues Detected") }
+                $t("Some files failed to synchronise. What would you like to do?"),
+                resultChoices.map((choice) => $t(choice)),
+                { defaultAction: $t(RELEASE_FLAG_PROCESS), title: $t("Synchronisation Issues Detected") }
             );
-            if (canRelease === RERUN_PROCESS) {
+            if (resultChoices.find((choice) => $t(choice) === canRelease) === RERUN_PROCESS) {
                 log("User chose to reboot and re-run the process.", LOG_LEVEL_NOTICE);
                 // Prevent to delete the flag, so that the process will be re-run after reboot.
                 // await cleanupFlag();

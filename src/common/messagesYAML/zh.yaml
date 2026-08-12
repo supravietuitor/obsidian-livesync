@@ -1837,3 +1837,6 @@ Vault history: 仓库历史
 "Keep local files even if deleted on remote": "即使远端已删除，也保留本地文件"
 "Cancel all and reboot": "全部取消并重启"
 "Synchronisation Issues Detected": "检测到同步问题"
+"Reboot to re-run the process": "重启并重新运行流程"
+"Finalise the process and resume normal operation": "完成流程并恢复正常运行"
+"Some files failed to synchronise. What would you like to do?": "部分文件同步失败。你希望如何处理？"
