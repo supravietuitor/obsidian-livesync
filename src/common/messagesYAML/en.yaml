@@ -2456,7 +2456,6 @@ Vault history: Vault history
 "Firstly, how shall we handle the data retrieved from this remote source?": "Firstly, how shall we handle the data retrieved from this remote source?"
 "Compares the modified time of files and takes the newer one.": "Compares the modified time of files and takes the newer one."
 "If you have been using Self-hosted LiveSync and have made changes on multiple devices, this option may be suitable for you as it tries to merge changes based on modified time.": "If you have been using Self-hosted LiveSync and have made changes on multiple devices, this option may be suitable for you as it tries to merge changes based on modified time."
-"Remote data is the source of truth.": "Remote data is the source of truth."
 "⚠️ Important Notice": "⚠️ Important Notice"
 "To minimise the creation of new conflicts": "To minimise the creation of new conflicts"
 "The files in this Vault are almost identical to the server's.": "The files in this Vault are almost identical to the server's."
