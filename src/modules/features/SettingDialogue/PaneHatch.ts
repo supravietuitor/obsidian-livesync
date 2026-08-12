@@ -1011,9 +1011,9 @@ export function paneHatch(this: ObsidianLiveSyncSettingTab, paneEl: HTMLElement,
                 })
         );
 
-        new Setting(paneEl).setName("Delete all customization sync data").addButton((button) =>
+        new Setting(paneEl).setName($msg("Delete all customization sync data")).addButton((button) =>
             button
-                .setButtonText("Delete")
+                .setButtonText($msg("Delete"))
                 .setDisabled(false)
                 .setWarning()
                 .onClick(async () => {

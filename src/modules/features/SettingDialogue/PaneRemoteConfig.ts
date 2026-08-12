@@ -395,7 +395,7 @@ export function paneRemoteConfig(
                     );
 
                     row.addButton((btn) =>
-                        setEmojiButton(btn, "…", "More actions").onClick(() => {
+                     setEmojiButton(btn, "…", $msg("More actions")).onClick(() => {
                             const menu = new Menu()
                                 .addItem((item) => {
                                     item.setTitle(`🪪 ${$msg("Rename")}`).onClick(async () => {
@@ -430,8 +430,8 @@ export function paneRemoteConfig(
                                 .addItem((item) => {
                                     item.setTitle(`🧬 ${$msg("Duplicate")}`).onClick(async () => {
                                         const nextName = await this.services.UI.confirm.askString(
-                                            "Duplicate remote",
-                                            "Display name",
+                                             $msg("Duplicate remote"),
+                                             $msg("Display name"),
                                             `${config.name} (Copy)`
                                         );
                                         if (nextName === false) {

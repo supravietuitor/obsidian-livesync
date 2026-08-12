@@ -147,10 +147,10 @@ export function panePatches(this: ObsidianLiveSyncSettingTab, paneEl: HTMLElemen
         new Setting(paneEl).autoWireDropDown("hashAlg", {
             options: {
                 "": $msg("Old Algorithm"),
-                xxhash32: "xxhash32 (Fast but less collision resistance)",
-                xxhash64: "xxhash64 (Fastest)",
-                "mixed-purejs": "PureJS fallback  (Fast, W/O WebAssembly)",
-                sha1: "Older fallback (Slow, W/O WebAssembly)",
+                xxhash32: $msg("xxhash32 (Fast but less collision resistance)"),
+                xxhash64: $msg("xxhash64 (Fastest)"),
+                "mixed-purejs": $msg("PureJS fallback  (Fast, W/O WebAssembly)"),
+                sha1: $msg("Older fallback (Slow, W/O WebAssembly)"),
             } satisfies Record<HashAlgorithm, string>,
         });
         this.addOnSaved("hashAlg", async () => {
