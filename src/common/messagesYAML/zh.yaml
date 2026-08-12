@@ -1670,3 +1670,4 @@ Revert: 恢复
 "I'm ready, unlock the database": "我已准备好，解锁数据库"
 "The IndexedDB adapter may cause memory leaks when used with LiveSync mode.": "在 LiveSync 模式下使用 IndexedDB 适配器可能导致内存泄漏。"
 "Changing the database adapter requires migration and an Obsidian restart.": "更改数据库适配器需要迁移数据并重启 Obsidian。"
+"Restarting Obsidian is strongly recommended before applying this change.": "强烈建议在应用此更改前重启 Obsidian。"

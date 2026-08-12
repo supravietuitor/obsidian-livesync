@@ -2469,3 +2469,4 @@ Revert: Revert
 "I'm ready, unlock the database": "I'm ready, unlock the database"
 "The IndexedDB adapter may cause memory leaks when used with LiveSync mode.": "The IndexedDB adapter may cause memory leaks when used with LiveSync mode."
 "Changing the database adapter requires migration and an Obsidian restart.": "Changing the database adapter requires migration and an Obsidian restart."
+"Restarting Obsidian is strongly recommended before applying this change.": "Restarting Obsidian is strongly recommended before applying this change."

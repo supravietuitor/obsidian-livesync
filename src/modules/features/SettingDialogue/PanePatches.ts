@@ -219,10 +219,10 @@ export function panePatches(this: ObsidianLiveSyncSettingTab, paneEl: HTMLElemen
         this.addOnSaved("maxMTimeForReflectEvents", async (key) => {
             const buttons = ["Restart Now", "Later"] as const;
             const reboot = await this.core.confirm.askSelectStringDialogue(
-                "Restarting Obsidian is strongly recommended. Until restart, some changes may not take effect, and display may be inconsistent. Are you sure to restart now?",
+                $t("Restarting Obsidian is strongly recommended before applying this change."),
                 buttons,
                 {
-                    title: "Remediation Setting Changed",
+                    title: $t("Remediation Setting Changed"),
                     defaultAction: "Restart Now",
                 }
             );
