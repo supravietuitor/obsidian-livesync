@@ -2436,7 +2436,6 @@ You should perform this operation only in exceptional circumstances, such as whe
     devices are no longer needed, or when the database size has become unusually
     large in comparison to the Vault size.
 Selector: Selector
-Hatch: Hatch
 "Please configure your end-to-end encryption settings.": "Please configure your end-to-end encryption settings."
 "Enter your passphrase": "Enter your passphrase"
 "Obfuscate Properties": "Obfuscate Properties"
