@@ -125,7 +125,7 @@ export function paneRemoteConfig(
                             await setupManager.onConfigureManually(originalSettings, UserMode.Update);
                             updateE2EESummary();
                         })
-                        .setButtonText("Configure And Change Remote")
+                        .setButtonText($msg("Configure And Change Remote"))
                         .setWarning()
                 );
             updateE2EESummary();
@@ -273,8 +273,8 @@ export function paneRemoteConfig(
             };
             const importRemoteConfiguration = async () => {
                 const importedURI = await this.services.UI.confirm.askString(
-                    "Import connection",
-                    "Paste a connection string",
+                     $msg("Import connection"),
+                     $msg("Paste a connection string"),
                     ""
                 );
                 if (importedURI === false) {
@@ -321,12 +321,12 @@ export function paneRemoteConfig(
                 refreshList();
             };
             actions.addButton((button) =>
-                setEmojiButton(button, "➕", "Add new connection").onClick(async () => {
+                setEmojiButton(button, "➕", $msg("Add new connection")).onClick(async () => {
                     await addRemoteConfiguration();
                 })
             );
             actions.addButton((button) =>
-                setEmojiButton(button, "📥", "Import connection").onClick(async () => {
+                setEmojiButton(button, "📥", $msg("Import connection")).onClick(async () => {
                     await importRemoteConfiguration();
                 })
             );
@@ -344,7 +344,7 @@ export function paneRemoteConfig(
                     }
 
                     row.addButton((btn) =>
-                        setEmojiButton(btn, "🔧", "Configure").onClick(async () => {
+                        setEmojiButton(btn, "🔧", $msg("Configure")).onClick(async () => {
                             let parsed: RemoteConfigurationResult;
                             try {
                                 parsed = ConnectionStringParser.parse(config.uri);
