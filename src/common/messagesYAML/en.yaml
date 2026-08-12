@@ -2460,7 +2460,6 @@ Diff only: Diff only
 "${CURRENT}/${TOTAL} matches": "${CURRENT}/${TOTAL} matches"
 "We don't have any history for this note.": "We don't have any history for this note."
 "Error while loading file.": "Error while loading file."
-Add: Add
 "Please configure your end-to-end encryption settings.": "Please configure your end-to-end encryption settings."
 "Enter your passphrase": "Enter your passphrase"
 "Obfuscate Properties": "Obfuscate Properties"
