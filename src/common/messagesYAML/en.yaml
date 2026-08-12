@@ -2470,7 +2470,6 @@ Revert: Revert
 "The IndexedDB adapter may cause memory leaks when used with LiveSync mode.": "The IndexedDB adapter may cause memory leaks when used with LiveSync mode."
 "Resolve if conflicted.": "Resolve if conflicted."
 "Write setting markdown manually": "Write setting markdown manually"
-"Parse setting file": "Parse setting file"
 "CouchDB Configuration": "CouchDB Configuration"
 "CouchDB validates the database name when you connect. The name must not be empty.": "CouchDB validates the database name when you connect. The name must not be empty."
 "Use Internal API": "Use Internal API"
