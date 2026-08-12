@@ -2477,7 +2477,6 @@ Revert: Revert
 "Use the project's public signalling relay": "Use the project's public signalling relay"
 "Peer discovery uses Nostr-compatible signalling relays.": "Peer discovery uses Nostr-compatible signalling relays."
 "Learn more about P2P connections": "Learn more about P2P connections"
-"Announce changes automatically after connecting": "Announce changes automatically after connecting"
 "Please configure your end-to-end encryption settings.": "Please configure your end-to-end encryption settings."
 "Enter your passphrase": "Enter your passphrase"
 "Obfuscate Properties": "Obfuscate Properties"
