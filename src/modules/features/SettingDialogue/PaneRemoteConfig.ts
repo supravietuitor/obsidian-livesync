@@ -244,7 +244,11 @@ export function paneRemoteConfig(
                 configPassphraseStore: this.editingSettings.configPassphraseStore,
             });
             const addRemoteConfiguration = async () => {
-                const name = await this.services.UI.confirm.askString("Remote name", "Display name", "New Remote");
+                 const name = await this.services.UI.confirm.askString(
+                     $msg("Remote name"),
+                     $msg("Display name"),
+                     $msg("New Remote")
+                 );
                 if (name === false) {
                     return;
                 }
@@ -292,7 +296,11 @@ export function paneRemoteConfig(
                 }
 
                 const defaultName = suggestRemoteConfigurationName(parsed);
-                const name = await this.services.UI.confirm.askString("Remote name", "Display name", defaultName);
+                 const name = await this.services.UI.confirm.askString(
+                     $msg("Remote name"),
+                     $msg("Display name"),
+                     defaultName
+                 );
                 if (name === false) {
                     return;
                 }
@@ -391,9 +399,9 @@ export function paneRemoteConfig(
                             const menu = new Menu()
                                 .addItem((item) => {
                                     item.setTitle(`🪪 ${$msg("Rename")}`).onClick(async () => {
-                                        const nextName = await this.services.UI.confirm.askString(
-                                            "Remote name",
-                                            "Display name",
+                                         const nextName = await this.services.UI.confirm.askString(
+                                             $msg("Remote name"),
+                                             $msg("Display name"),
                                             config.name
                                         );
                                         if (nextName === false) {
