@@ -87,7 +87,7 @@ export function panePatches(this: ObsidianLiveSyncSettingTab, paneEl: HTMLElemen
             });
             const setting = new Setting(paneEl)
                 .setName($msg("Database Adapter"))
-                .setDesc("Select the database adapter to use. ");
+                .setDesc($msg("Select the database adapter to use."));
             const el = setting.controlEl.createDiv({});
             el.setText(`Current adapter: ${this.editingSettings.useIndexedDBAdapter ? "IndexedDB" : "IDB"}`);
             if (!this.editingSettings.useIndexedDBAdapter) {
