@@ -2474,7 +2474,6 @@ Revert: Revert
 "Your ${TITLE} has been copied to the clipboard.": "Your ${TITLE} has been copied to the clipboard."
 "To stop the countdown, tap anywhere on the dialogue": "To stop the countdown, tap anywhere on the dialogue"
 "Signalling relay URLs": "Signalling relay URLs"
-"Use the project's public signalling relay": "Use the project's public signalling relay"
 "Please configure your end-to-end encryption settings.": "Please configure your end-to-end encryption settings."
 "Enter your passphrase": "Enter your passphrase"
 "Obfuscate Properties": "Obfuscate Properties"
