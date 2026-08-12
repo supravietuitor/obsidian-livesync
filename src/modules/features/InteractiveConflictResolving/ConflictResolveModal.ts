@@ -136,11 +136,11 @@ export class ConflictResolveModal extends Modal {
 
         const diffNavContainer = diffOptionsRow.createDiv("");
         diffNavContainer.addClass("diff-nav");
-        diffNavContainer.createEl("button", { text: $msg("▲ Prev") }, (e) => {
+        diffNavContainer.createEl("button", { text: $t("▲ Prev") }, (e) => {
             e.addClass("diff-nav-btn");
             e.addEventListener("click", () => this.navigateDiff("prev"));
         });
-        diffNavContainer.createEl("button", { text: $msg("▼ Next") }, (e) => {
+        diffNavContainer.createEl("button", { text: $t("▼ Next") }, (e) => {
             e.addClass("diff-nav-btn");
             e.addEventListener("click", () => this.navigateDiff("next"));
         });
@@ -191,7 +191,7 @@ export class ConflictResolveModal extends Modal {
                 e.addEventListener("click", () => this.sendResponse(this.result.left.rev));
             });
             if (!this.pluginPickMode) {
-                actionContainer.createEl("button", { text: $msg("Concat both") }, (e) => {
+                actionContainer.createEl("button", { text: $t("Concat both") }, (e) => {
                     e.addClass("conflict-action-button");
                     e.addEventListener("click", () => this.sendResponse(LEAVE_TO_SUBSEQUENT));
                 });

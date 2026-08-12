@@ -693,7 +693,7 @@ export class DocumentHistoryModal extends Modal {
         div.addClass("op-scrollable");
         div.addClass("op-pre");
         const buttons = contentEl.createDiv("");
-        buttons.createEl("button", { text: $msg("Copy to clipboard") }, (e) => {
+        buttons.createEl("button", { text: $t("Copy to clipboard") }, (e) => {
             e.addClass("mod-cta");
             e.addEventListener("click", () => {
                 fireAndForget(async () => {
@@ -711,7 +711,7 @@ export class DocumentHistoryModal extends Modal {
                 Logger("Unable to display the file in the editor", LOG_LEVEL_NOTICE);
             }
         };
-        buttons.createEl("button", { text: $msg("Back to this revision") }, (e) => {
+        buttons.createEl("button", { text: $t("Back to this revision") }, (e) => {
             e.addClass("mod-cta");
             e.addEventListener("click", () => {
                 fireAndForget(async () => {

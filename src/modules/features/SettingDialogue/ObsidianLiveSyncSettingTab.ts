@@ -804,18 +804,18 @@ export class ObsidianLiveSyncSettingTab extends PluginSettingTab {
         void addPane(containerEl, $msg("obsidianLiveSyncSettingTab.titleSyncSettings"), "🔄", 30, false).then(
             bindPane(paneSyncSettings)
         );
-        void addPane(containerEl, $msg("Selector"), "🚦", 33, false, LEVEL_ADVANCED).then(bindPane(paneSelector));
+        void addPane(containerEl, $t("Selector"), "🚦", 33, false, LEVEL_ADVANCED).then(bindPane(paneSelector));
         void addPane(containerEl, $msg("Customization Sync"), "🔌", 60, false, LEVEL_ADVANCED).then(
             bindPane(paneCustomisationSync)
         );
 
-        void addPane(containerEl, $msg("Hatch"), "🧰", 50, true).then(bindPane(paneHatch));
+        void addPane(containerEl, $t("Hatch"), "🧰", 50, true).then(bindPane(paneHatch));
         void addPane(containerEl, $msg("Advanced"), "🔧", 46, false, LEVEL_ADVANCED).then(bindPane(paneAdvanced));
-        void addPane(containerEl, $msg("Power users"), "💪", 47, true, LEVEL_POWER_USER).then(bindPane(panePowerUsers));
+        void addPane(containerEl, $t("Power users"), "💪", 47, true, LEVEL_POWER_USER).then(bindPane(panePowerUsers));
 
-        void addPane(containerEl, $msg("Patches"), "🩹", 51, false, LEVEL_EDGE_CASE).then(bindPane(panePatches));
+        void addPane(containerEl, $t("Patches"), "🩹", 51, false, LEVEL_EDGE_CASE).then(bindPane(panePatches));
 
-        void addPane(containerEl, $msg("Maintenance"), "🎛️", 70, true).then(bindPane(paneMaintenance));
+        void addPane(containerEl, $t("Maintenance"), "🎛️", 70, true).then(bindPane(paneMaintenance));
 
         void yieldNextAnimationFrame().then(() => {
             if (this.selectedScreen == "") {
