@@ -2482,6 +2482,7 @@ Revert: Revert
 Data: Data
 data: data
 OK: OK
+"To stop the countdown, tap anywhere on the dialogue": "To stop the countdown, tap anywhere on the dialogue"
 "Conflicting changes": "Conflicting changes"
 "Pick a version": "Pick a version"
 "Changing the database adapter requires migration and an Obsidian restart.": "Changing the database adapter requires migration and an Obsidian restart."

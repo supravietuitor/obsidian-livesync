@@ -1698,6 +1698,7 @@ Revert: 恢复
 Data: 数据
 data: 数据
 OK: 确定
+"To stop the countdown, tap anywhere on the dialogue": "点击对话框任意位置即可停止倒计时"
 "Conflicting changes": "存在冲突更改"
 "Pick a version": "选择版本"
 "Vault and database revision": "仓库与数据库修订"
