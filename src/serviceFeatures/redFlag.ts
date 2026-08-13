@@ -241,7 +241,7 @@ export async function adjustSettingToRemote(
             const cancelInitialisation = $msg("Cancel");
             log(`Remote synchronisation settings are not configured (${remoteResult.reason}).`, LOG_LEVEL_INFO);
             const choice = await host.services.UI.confirm.askSelectStringDialogue(
-                $msg(
+                $t(
                     "The selected remote has no saved synchronisation settings. This is normal for a new remote. Use this device's settings, or cancel if you expected existing settings."
                 ),
                 [useDeviceSettings, cancelInitialisation] as const,
@@ -444,7 +444,7 @@ export async function verifyAndUnlockSuspension(
     }
     if (
         (await host.services.UI.confirm.askYesNoDialog(
-            $msg("Do you want to resume file and database processing, and restart obsidian now?"),
+            $t("Do you want to resume file and database processing, and restart obsidian now?"),
             { defaultOption: "Yes", timeout: 15 }
         )) != "yes"
     ) {
