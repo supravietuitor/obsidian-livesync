@@ -303,7 +303,7 @@ export async function adjustSettingToRemote(
             log("Remote configuration matches local configuration. No changes applied.", LOG_LEVEL_NOTICE);
         } else {
             await host.services.UI.confirm.askSelectStringDialogue(
-                $msg(
+                $t(
                     "Your settings differed slightly from the server's. The plug-in has supplemented the incompatible parts with the server settings!"
                 ),
                 ["OK"] as const,
